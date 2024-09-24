@@ -8,7 +8,7 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import axios from "axios";
 import { webData } from "../../../data/db";
 
-import { BASE_URL } from '../../../../config'
+import { BASE_URL } from '../../../../config.ts'
 
 type LoginInfo = {
   email: string;
