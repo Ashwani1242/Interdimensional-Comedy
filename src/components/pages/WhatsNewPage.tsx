@@ -3,8 +3,6 @@ import Navbar from '../Navbar'
 import InteractiveDisplay from '../background/IntercativeDisplay'
 import Footer from '../Footer'
 import CardCarousel from '../utils/CardCarousel'
-import bgImage from "../../assets/images/bg.png";
-import bgImage2 from "../../assets/images/bg2.png";
 import { webData } from '../../data/db'
 
 function WhatsNewPage() {
