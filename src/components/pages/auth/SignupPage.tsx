@@ -8,6 +8,8 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import axios from "axios";
 import { webData } from "../../../data/db";
 
+import { BASE_URL } from '../../../../config'
+
 type SignupInfo = {
   name: string;
   email: string;
@@ -40,7 +42,7 @@ function SignupPage() {
       return;
     }
 
-    const url = `${import.meta.env.BASE_URL}/auth/signup`
+    const url = `${BASE_URL}/auth/signup`
 
     axios.post(url, signupInfo)
       .then(() => {
