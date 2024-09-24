@@ -40,7 +40,7 @@ function SignupPage() {
       return;
     }
 
-    const url = 'http://localhost:8000/auth/signup'
+    const url = `${import.meta.env.BASE_URL}/auth/signup`
 
     axios.post(url, signupInfo)
       .then(() => {

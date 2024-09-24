@@ -36,7 +36,7 @@ function LoginPage() {
       return;
     }
 
-    const url = 'http://localhost:8000/auth/login'
+    const url = `${import.meta.env.BASE_URL}/auth/login`
 
     axios.post(url, loginInfo)
       .then((res) => {
