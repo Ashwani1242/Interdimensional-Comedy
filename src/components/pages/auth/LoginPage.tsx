@@ -48,7 +48,8 @@ function LoginPage() {
 
         // console.log(res.data)
 
-        const { success, message, jwtToken, name, email } = res.data;
+        // const { success, message, jwtToken, name, email } = res.data;
+        const { jwtToken, name, email } = res.data;
 
         localStorage.setItem('token', jwtToken);
         localStorage.setItem('loggedInUser', name);
