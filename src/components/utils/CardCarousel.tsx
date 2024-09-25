@@ -10,9 +10,10 @@ interface ImageCarouselProps {
     slides: webArray[];
     title: string,
     width?: number,
+    landscape?: boolean
 }
 
-const CardCarousel: React.FC<ImageCarouselProps> = ({ slides, title, width = 360 }) => {
+const CardCarousel: React.FC<ImageCarouselProps> = ({ slides, title, width = 360, landscape = true }) => {
     const [current, setCurrent] = useState<number>(0);
 
     const previousSlide = () => {
@@ -24,15 +25,17 @@ const CardCarousel: React.FC<ImageCarouselProps> = ({ slides, title, width = 360
     };
 
     return (
-        <div className="relative w-full max-w-[1920px] h-[700px] px-96 py-16 rounded-lg flex flex-col justify-normal items-center">
-            <div className='flex w-full justify-between py-8'>
-                <span className='text-3xl'>{title}</span>
+        <div
+            style={{height: landscape ? `${(width / 1.5) + (width / 1.2)}px` : `${(width * 1.5) + (width / 1.2)}px` }}
+            className="relative w-full max-w-[1920px] lg:px-32 xl:px-96 px-8 py-16 rounded-lg flex flex-col justify-normal items-center">
+            <div className='flex w-full items-center justify-between py-8'>
+                <span className='text-xl md:text-3xl'>{title}</span>
                 <div className='flex'>
                     <button onClick={previousSlide} className="flex items-center text-white px-2 text-3xl">
-                        <Arrow size="40px" />
+                        <Arrow customClass="w-6 md:w-8" />
                     </button>
                     <button onClick={nextSlide} className="flex items-center text-white px-2 text-3xl">
-                        <Arrow size="40px" customClass="rotate-180" />
+                        <Arrow customClass="rotate-180 w-6 md:w-8" />
                     </button>
                 </div>
             </div>
@@ -45,8 +48,11 @@ const CardCarousel: React.FC<ImageCarouselProps> = ({ slides, title, width = 360
                     {slides.map((s) => (
                         <div
                             key={s.id}
-                            style={{width: `${width}px`}}
-                            className="h-[480px] relative flex justify-center items-center hover:scale-[1.03] transition-all duration-500 cursor-pointer">
+                            style={{
+                                width: `${width}px`,
+                                height: landscape ? `${width / 1.5}px` : `${width * 1.5}px`,
+                            }}
+                            className={`relative flex justify-center items-center hover:scale-[1.03] transition-all duration-500 cursor-pointer`}>
                             <div
                                 style={{ backgroundImage: `url(${s.imageUrl})` }}
                                 className="w-full h-full absolute bg-no-repeat bg-center bg-cover filter brightness-[.9] rounded-lg" />

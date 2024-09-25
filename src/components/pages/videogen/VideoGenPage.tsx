@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import PrimaryButton from './utils/PrimaryButton';
+import PrimaryButton from '../../utils/PrimaryButton';
 
 function VideoGenPage() {
     const [prompt, setPrompt] = useState<string>('');
@@ -10,7 +10,7 @@ function VideoGenPage() {
     const [ageGroup, setAgeGroup] = useState<string>('kids (5 - 12)');
     const [duration, setDuration] = useState<string>('50');
     const [generatedPrompt, setGeneratedPrompt] = useState<string>('');
-    const [generatedScript, setGeneratedScript] = useState<string>('Enter a prompt to generate a Script');
+    const [generatedScript, setGeneratedScript] = useState<string>('Your script will be shown here');
     const [error, setError] = useState<string>('');
     const [isGeneratingScript, setIsGeneratingScript] = useState<boolean>(false);
     const [isGeneratingVideo, setIsGeneratingVideo] = useState<boolean>(false);
@@ -150,13 +150,13 @@ function VideoGenPage() {
     };
 
     return (
-        <div className="flex flex-col justify-center items-center/ h-screen w-screen pt-24 px-40">
-            <div className='flex justify-center/ items-center h-full w-full pb-16'>
-                <div className="flex-1 flex flex-col justify-normal h-full items-center space-y-4 px-16 py-8">
-                    <div className='text-4xl uppercase font-bold bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent pb-8'>
+        <div className="flex flex-col justify-center items-center/ xl:h-screen w-screen pt-24 md:px-40">
+            <div className='flex flex-col xl:flex-row items-center h-fit xl:h-full w-full pb-16'>
+                <div className="flex-1 flex flex-col justify-normal xl:h-full items-center space-y-4 px-12 md:px-16 py-8">
+                    <div className='text-2xl md:text-4xl uppercase font-bold bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent pb-8'>
                         Generate Your Comedy Show
                     </div>
-                    <div className='w-full h-[100px] focus-within:h-[160px] duration-500 relative p-[1px] bg-gradient-to-br from-red-400 from-30% via-indigo-400 to-purple-400 rounded-sm'>
+                    <div className='w-full h-[200px] md:h-[100px] md:focus-within:h-[160px] duration-500 relative p-[1px] bg-gradient-to-br from-red-400 from-30% via-indigo-400 to-purple-400 rounded-sm'>
                         {error && <p className="text-red-500 absolute -top-8">{error}</p>}
                         <textarea
                             value={prompt}
@@ -166,7 +166,7 @@ function VideoGenPage() {
                             required />
                     </div>
 
-                    <div className='grid grid-cols-2 gap-4 w-full'>
+                    <div className='flex flex-col md:grid grid-cols-2 gap-4 w-full'>
                         {/* <div className='w-full h-fit focus-within:h-[160px] duration-500 relative p-[1px] bg-gradient-to-br from-red-400 to-indigo-400 rounded-sm'> */}
                         <select
                             value={theme}
@@ -224,10 +224,10 @@ function VideoGenPage() {
                         <div className='w-full h-[2px] bg-white/50'></div>
                     </div>
 
-                    <div className="p-4 flex-1 border mt-4 w-full h-full overflow-y-auto bg-black/50 text-gray-400 overflow-hidden">{generatedScript}</div>
+                    <div className="p-4 xl:flex-1 border mt-4 w-full h-[200px] xl:h-full overflow-y-auto bg-black/50 text-gray-400 overflow-hidden">{generatedScript}</div>
                 </div>
                 {/* <div className='py-40 h-full'> <div className='h-full w-[2px] bg-neutral-500' /> </div> */}
-                <div className="flex-1 flex flex-col justify-center items-center h-full bg-neutral-800 rounded-xl">
+                <div className="xl:flex-1 flex flex-col w-3/4 justify-center items-center h-96 xl:h-full bg-neutral-800 rounded-xl">
                     {videoUrl ? "" : "Your Video Here"}
                     {isFetchingVideo ? (
                         <p className="text-blue-500">Loading video...</p>

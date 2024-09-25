@@ -13,7 +13,7 @@ const InteractiveDisplay = () => {
     };
   }, []);
 
-  return <div ref={sketchRef} className='absolute' />;
+  return <div ref={sketchRef} className='absolute hidden md:block' />;
 };
 
 export default InteractiveDisplay;

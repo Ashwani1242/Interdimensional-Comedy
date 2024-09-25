@@ -47,28 +47,28 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ slides }) => {
     }, []);
 
     return (
-        <div className="relative w-full max-w-[1800px] h-[700px] rounded-lg flex justify-center">
-            <div className="w-full max-w-[1800px] h-[660px] overflow-hidden rounded-lg">
+        <div className="relative w-full max-w-[1800px] md:h-[700px] h-[500px] rounded-lg flex flex-col justify-around items-center">
+            <div className="w-full max-w-[1800px] h-[94%] overflow-hidden rounded-lg">
                 <div
-                    className="flex transition-transform ease-in-out duration-1000 gap-x-16 md:gap-x-32 h-full"
+                    className="flex transition-transform ease-in-out duration-1000 gap-x-16/ h-full"
                     style={{
-                        transform: `translateX(calc(-${current * 100}vw - 128px))`,
-                        width: `calc(${slides.length * 100}vw + 128px)`,
+                        transform: `translateX(calc(-${current * 100}vw - 64px))`,
+                        width: `calc(${slides.length * 100}vw + 0px)`,
                     }}>
                     {slides.map((s) => (
                         <div
                             key={s.id}
-                            className="w-full h-[640px] relative flex justify-center items-center">
+                            className="w-full h-[92%] relative flex justify-center items-center">
                             <div
                                 style={{ backgroundImage: `url(${s.imageUrl})` }}
                                 className="w-full h-full absolute bg-no-repeat bg-center bg-cover filter brightness-[.4] rounded-lg" />
-                            <div className="absolute z-50 left-[500px] w-[1000px] flex flex-col justify-center items-start gap-y-8">
-                                <div className="flex flex-col gap-y-8">
-                                    <span className="text-7xl font-bold"> {s.titleOne} <br /> {s.titleTwo} </span>
-                                    <span className="text-3xl"> {s.subTitleOne} <br /> {s.subTitleTwo} </span>
+                            <div className="absolute text-center md:text-left pl-16 py-16 z-50 w-3/4 h-full md:h-fit flex flex-col justify-around items-start gap-y-4 md:gap-y-8">
+                                <div className="flex flex-col gap-y-4 md:gap-y-8">
+                                    <span className="xl:text-7xl lg:text-5xl text-2xl font-bold"> {s.titleOne} <br /> {s.titleTwo} </span>
+                                    <span className="xl:text-3xl lg:text-xl"> {s.subTitleOne} <br /> {s.subTitleTwo} </span>
                                 </div>
-                                <div className="flex gap-x-8 text-xl items-center justify-normal" >
-                                    <PrimaryButton label="Try for free!" />
+                                <div className="flex gap-x-4 md:gap-x-8 w-full text-sm md:text-xl items-center justify-center md:justify-start" >
+                                    <PrimaryButton label="Try for free!" customClass="text-nowrap" />
                                     <div className="hover:animate-pulse hover:brightness-90 duration-500 font-semibold py-2 px-4 cursor-pointer text-white hover:text-indigo-100 transition-all hover:-translate-y-[2px]">
                                         Explore
                                     </div>
@@ -79,14 +79,14 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ slides }) => {
                 </div>
             </div>
 
-            <button className="absolute top-0 left-2 h-full flex items-center text-white px-4 text-3xl" onClick={previousSlide}>
-                <Arrow size="40px" />
+            <button className="absolute top-0 left-1 h-full flex items-center text-white px-4 text-3xl" onClick={previousSlide}>
+                <Arrow size="40px" customClass="w-6 md:w-8" />
             </button>
-            <button className="absolute top-0 right-2 h-full flex items-center text-white px-4 text-3xl" onClick={nextSlide}>
-                <Arrow size="40px" customClass="rotate-180" />
+            <button className="absolute top-0 right-1 h-full flex items-center text-white px-4 text-3xl" onClick={nextSlide}>
+                <Arrow size="40px" customClass="rotate-180 w-6 md:w-8" />
             </button>
 
-            <div className="absolute bottom-6 flex justify-center gap-4 w-full">
+            <div className="absolute/ bottom-6 flex justify-center gap-4 w-full">
                 {slides.map((_, i) => (
                     <div
                         onClick={() => setCurrent(i)}
