@@ -26,8 +26,8 @@ const CardCarousel: React.FC<ImageCarouselProps> = ({ slides, title, width = 360
 
     return (
         <div
-            style={{height: landscape ? `${(width / 1.5) + (width / 1.2)}px` : `${(width * 1.5) + (width / 1.2)}px` }}
-            className="relative w-full max-w-[1920px] lg:px-32 xl:px-96 px-8 py-16 rounded-lg flex flex-col justify-normal items-center">
+            // style={{height: landscape ? `${(width / 1.5) + (width / 1.2)}px` : `${(width * 1.5) + (width / 1.2)}px` }}
+            className="relative w-full max-w-[1920px] h-fit lg:px-32 xl:px-96 px-8 py-16 rounded-lg flex flex-col justify-normal items-center">
             <div className='flex w-full items-center justify-between py-8'>
                 <span className='text-xl md:text-3xl'>{title}</span>
                 <div className='flex'>
