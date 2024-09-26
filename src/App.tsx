@@ -8,6 +8,7 @@ import MyGallery from "./components/pages/MyGallery";
 import ComedyShowPage from "./components/pages/videogen/ComedyShowPage";
 import PricingPage from "./components/pages/PricingPage";
 import WhatsNewPage from "./components/pages/WhatsNewPage";
+import KidsMusicPage from "./components/pages/musicgen/KidsMusicPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         </Route>
         <Route path="/gallery" element={<MyGallery />} />
         <Route path="/comedy-show" element={<ComedyShowPage />} />
+        <Route path="/kids-music" element={<KidsMusicPage />} />
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/whats-new" element={<WhatsNewPage />} />
       </Routes>
