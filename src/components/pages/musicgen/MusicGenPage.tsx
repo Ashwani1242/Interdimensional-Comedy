@@ -19,7 +19,7 @@ function MusicGenPage() {
             return;
         }
 
-        const finalPrompt = `Create a fun, joyful, and playful kid's poem like or cartoon like song suitable for children below 10 years old. for: ${prompt}. Ensure the theme, lyrics, and genre are child-friendly, joyful and positive.`;
+        const finalPrompt = `Create a fun, joyful, and playful kid's poem like or cartoon like song suitable for children below 10 years old. for: ${prompt}.`;
 
         setError('');
         setIsGeneratingMusic(true);
