@@ -49,7 +49,7 @@ function MusicGenPage() {
                 setMusicUrl(firstMusicItem.audio_file); 
                 setGeneratedLyrics(firstMusicItem.lyric); 
             } else {
-                setError("Free Limit Reached, " + musicData.message);
+                setError(`Free Limit Reached, { ${musicData.message} }`);
             }
 
         } catch (error: any) {
@@ -144,7 +144,7 @@ function MusicGenPage() {
                             <p>Music generated successfully! </p>
                             <audio controls src={musicUrl} className="w-full" />
                             <a href={musicUrl} download className="bg-green-500 text-white p-2 rounded">
-                                Download Video
+                                Download Music
                             </a>
                         </div>
                     ) : "Your Music Here"}
