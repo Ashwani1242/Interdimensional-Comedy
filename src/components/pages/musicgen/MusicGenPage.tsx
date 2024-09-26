@@ -48,7 +48,7 @@ function MusicGenPage() {
                 setMusicUrl(firstMusicItem.audio_file); 
                 setGeneratedLyrics(firstMusicItem.lyric); 
             } else {
-                setError("Free Limit Reached");
+                setError("Free Limit Reached, " + musicData.message);
             }
 
         } catch (error: any) {
