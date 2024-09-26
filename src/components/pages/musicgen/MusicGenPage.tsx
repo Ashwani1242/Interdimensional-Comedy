@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import PrimaryButton from '../../utils/PrimaryButton';
+import { BASE_URL } from '../../../../config';
 
 function MusicGenPage() {
     const [prompt, setPrompt] = useState<string>('');
@@ -24,7 +25,7 @@ function MusicGenPage() {
         setError('');
         setIsGeneratingMusic(true);
 
-        const apiUrl = `${import.meta.env.BASE_URL}/music/generate`;
+        const apiUrl = `${BASE_URL}/music/generate`;
 
         const requestData: any = {
             is_auto: 1,
