@@ -24,7 +24,7 @@ function MusicGenPage() {
         setError('');
         setIsGeneratingMusic(true);
 
-        const apiUrl = 'http://localhost:8000/music/generate';
+        const apiUrl = 'https://interdimensional-comedy-backend.onrender.com/music/generate';
 
         const requestData: any = {
             is_auto: 1,
