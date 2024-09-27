@@ -14,7 +14,7 @@ interface ImageCarouselProps {
 }
 
 const CardCarousel: React.FC<ImageCarouselProps> = ({ slides, title, width = 360, landscape = true }) => {
-    const [current, setCurrent] = useState<number>(0);
+    const [current, setCurrent] = useState<number>(1);
 
     const previousSlide = () => {
         setCurrent(current === 0 ? slides.length - 1 : current - 1);

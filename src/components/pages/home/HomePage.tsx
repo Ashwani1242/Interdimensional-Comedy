@@ -7,7 +7,7 @@ import PricingSection from "./PricingSection";
 function HomePage() {
   return (
     <>
-      <Navbar color="#0f0f11" />
+      <Navbar />
       <HeroSection />
       <GallerySection />
       <PricingSection />

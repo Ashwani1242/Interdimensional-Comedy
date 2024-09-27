@@ -1,7 +1,7 @@
 import HomePage from "./components/pages/home/HomePage";
 import LoginPage from "./components/pages/auth/LoginPage";
 import AuthPage from "./components/pages/auth/AuthPage";
-import AnimatedCursor from "react-animated-cursor";
+// import AnimatedCursor from "react-animated-cursor";
 import { Navigate, Route, Routes } from "react-router-dom";
 import SignupPage from "./components/pages/auth/SignupPage";
 import MyGallery from "./components/pages/MyGallery";
@@ -12,7 +12,7 @@ import KidsMusicPage from "./components/pages/musicgen/KidsMusicPage";
 
 function App() {
   return (
-    <div id="" className="flex flex-col justify-center items-center overflow-x-hidden cursor-none">
+    <div id="" className="flex flex-col justify-center items-center overflow-x-hidden cursor-none/">
 
       <Routes >
         <Route path="/" element={<HomePage />} />
@@ -27,7 +27,7 @@ function App() {
         <Route path="/pricing" element={<PricingPage />} />
         <Route path="/whats-new" element={<WhatsNewPage />} />
       </Routes>
-
+{/* 
       <AnimatedCursor
         innerSize={10}
         outerSize={10}
@@ -51,7 +51,7 @@ function App() {
           "button",
           ".link",
         ]}
-      />
+      /> */}
     </div>
   );
 }

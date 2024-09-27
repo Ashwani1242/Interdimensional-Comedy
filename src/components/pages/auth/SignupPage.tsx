@@ -81,7 +81,7 @@ function SignupPage() {
           <span className="block font-medium text-gray-600 dark:text-gray-200">
             Already have an account?
           </span>
-          <Link to={'/auth/login'} className="hover:brightness-90 pl-1 text-blue-300 cursor-none hover:text-blue-400 transition-all duration-500 hover:-translate-y-[2px]">
+          <Link to={'/auth/login'} className="hover:brightness-90 pl-1 text-blue-300 cursor-pointer hover:text-blue-400 transition-all duration-500 hover:-translate-y-[2px]">
             login
           </Link>
         </div>

@@ -3,7 +3,7 @@ import axios from 'axios';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import PrimaryButton from '../../utils/PrimaryButton';
 
-function VideoGenPage() {
+function VideoGenTavus() {
     const [prompt, setPrompt] = useState<string>('');
     const [theme, setTheme] = useState<string>('fantasy');
     const [tone, setTone] = useState<string>('sarcastic');
@@ -16,6 +16,7 @@ function VideoGenPage() {
     const [isGeneratingVideo, setIsGeneratingVideo] = useState<boolean>(false);
     const [videoUrl, setVideoUrl] = useState<string>('');
     const [isFetchingVideo, setIsFetchingVideo] = useState<boolean>(false);
+    // const [isVideoGenerating, setIsVideoGenerating] = useState<boolean>(false);
 
     const genAI = new GoogleGenerativeAI(import.meta.env.VITE_API_KEY);
     const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
@@ -59,39 +60,31 @@ function VideoGenPage() {
 
         const options = {
             method: 'POST',
-            url: 'https://api.d-id.com/talks',
+            url: 'https://tavusapi.com/v2/videos',
             headers: {
-                accept: 'application/json',
-                'content-type': 'application/json',
-                authorization: `Bearer ${import.meta.env.VITE_DID_AUTH}`,
+                'x-api-key': import.meta.env.VITE_TAVUS_API_KEY,
+                'Content-Type': 'application/json',
             },
             data: {
-                source_url: 'https://images.pexels.com/photos/671800/pexels-photo-671800.jpeg?auto=compress&cs=tinysrgb&w=600.jpg',
-                // source_url: 'https://d-id-public-bucket.s3.us-west-2.amazonaws.com/alice.jpg',
-                script: {
-                    type: 'text',
-                    subtitles: 'false',
-                    provider: { type: 'microsoft', voice_id: 'Sara' },
-                    input: script,
-                },
-                config: { fluent: 'false', pad_audio: '0.0', output_resolution: 1280, face: {size: 360}, name: 'Comedy Show' },
+                replica_id: 'r79e1c033f', // Replace with your replica_id
+                script: script,
+                video_name: 'Comedy Show',
+                background_url: '', // Optional: add background if needed
             },
         };
 
         try {
             const response = await axios.request(options);
-            const video_Id = response.data.id;
+            const videoId = response.data.video_id;
 
-            console.log('API Response:', response.data);
-
-            if (!video_Id) {
-                console.error('Invalid video ID received:', video_Id);
+            if (!videoId) {
+                console.error('Invalid video ID received:', videoId);
                 setError('Failed to retrieve video ID.');
                 return;
             }
 
-            console.log('Video ID:', video_Id);
-            fetchVideo(video_Id);
+            console.log('Video ID:', videoId);
+            fetchVideo(videoId);
         } catch (error) {
             console.error('Error generating video:', error);
             setError('Failed to generate video. Please try again.');
@@ -102,7 +95,7 @@ function VideoGenPage() {
 
     const fetchVideo = async (videoId: string) => {
         setIsFetchingVideo(true);
-        // setIsGeneratingVideo(false)
+        // setIsVideoGenerating(true);
         const MAX_ATTEMPTS = 100;
         const POLLING_INTERVAL = 5000;
         let attempts = 0;
@@ -111,38 +104,44 @@ function VideoGenPage() {
             if (attempts >= MAX_ATTEMPTS) {
                 setError('Failed to fetch video. Please try again later.');
                 setIsFetchingVideo(false);
+                // setIsVideoGenerating(false);
                 return;
             }
 
             attempts++;
             const options = {
                 method: 'GET',
-                url: `https://api.d-id.com/talks/${videoId}`,
+                url: `https://tavusapi.com/v2/videos/${videoId}`,
                 headers: {
-                    accept: 'application/json',
-                    authorization: `Bearer ${import.meta.env.VITE_DID_AUTH}`,
+                    'x-api-key': import.meta.env.VITE_TAVUS_API_KEY,
                 },
             };
 
             try {
                 const response = await axios.request(options);
+                const resultUrl = response.data.download_url;
+                const status = response.data.status;
+
                 console.log('GET Response:', response.data);
 
-                const resultUrl = response.data.result_url;
-
-                if (!resultUrl) {
-                    console.log('Result URL not ready yet, retrying...');
+                if (status !== 'ready') {
+                    console.log(`Video is ${status}, waiting...`);
                     setTimeout(checkVideoStatus, POLLING_INTERVAL);
-                    return;
+                } else if (status === 'ready' && resultUrl) {
+                    setVideoUrl(resultUrl);
+                    setIsFetchingVideo(false);
+                    // setIsVideoGenerating(false);
+                } else {
+                    console.log('Unexpected status:', status);
+                    setError('Failed to retrieve video URL.');
+                    setIsFetchingVideo(false);
+                    // setIsVideoGenerating(false);
                 }
-
-                setVideoUrl(resultUrl);
-                console.log('Result URL:', resultUrl);
-                setIsFetchingVideo(false);
             } catch (error) {
                 console.error('Error fetching video:', error);
                 setError('Failed to fetch video. Please try again.');
                 setIsFetchingVideo(false);
+                // setIsVideoGenerating(false);
             }
         };
 
@@ -156,6 +155,7 @@ function VideoGenPage() {
                     <div className='text-2xl md:text-4xl uppercase font-bold bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent pb-8'>
                         Generate Your Comedy Show
                     </div>
+                    
                     <div className='w-full h-[200px] md:h-[100px] md:focus-within:h-[160px] duration-500 relative p-[1px] bg-gradient-to-br from-red-400 from-30% via-indigo-400 to-purple-400 rounded-sm'>
                         {error && <p className="text-red-500 absolute -top-8">{error}</p>}
                         <textarea
@@ -248,4 +248,4 @@ function VideoGenPage() {
     );
 }
 
-export default VideoGenPage;
+export default VideoGenTavus;

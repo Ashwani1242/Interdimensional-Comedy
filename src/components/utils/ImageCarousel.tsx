@@ -19,6 +19,8 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ slides }) => {
     const [current, setCurrent] = useState<number>(0);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
+    const isAutoScroll = false;
+
     const previousSlide = () => {
         setCurrent(current === 0 ? slides.length - 1 : current - 1);
     };
@@ -28,9 +30,11 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ slides }) => {
     };
 
     const startAutoScroll = () => {
-        intervalRef.current = setInterval(() => {
-            setCurrent((prevCurrent) => (prevCurrent === slides.length - 1 ? 0 : prevCurrent + 1));
-        }, 10000);
+        if (isAutoScroll) {
+            intervalRef.current = setInterval(() => {
+                setCurrent((prevCurrent) => (prevCurrent === slides.length - 1 ? 0 : prevCurrent + 1));
+            }, 10000);
+        }
     };
 
     const stopAutoScroll = () => {
@@ -45,6 +49,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ slides }) => {
 
         return () => stopAutoScroll();
     }, []);
+
 
     return (
         <div className="relative w-full max-w-[1800px] md:h-[700px] h-[500px] rounded-lg flex flex-col justify-around items-center">
