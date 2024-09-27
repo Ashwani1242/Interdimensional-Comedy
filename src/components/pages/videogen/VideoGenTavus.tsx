@@ -66,10 +66,10 @@ function VideoGenTavus() {
                 'Content-Type': 'application/json',
             },
             data: {
-                replica_id: 'r79e1c033f', // Replace with your replica_id
+                replica_id: 'r79e1c033f', 
                 script: script,
                 video_name: 'Comedy Show',
-                background_url: '', // Optional: add background if needed
+                background_url: '', 
             },
         };
 

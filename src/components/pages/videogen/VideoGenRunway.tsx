@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import axios from 'axios';
 import PrimaryButton from '../../utils/PrimaryButton';
-import { LocalHost } from '../../../../config';
+import { BASE_URL } from '../../../../config';
 
 const VideoGenRunway = () => {
     const [prompt, setPrompt] = useState<string>('');
@@ -23,7 +23,7 @@ const VideoGenRunway = () => {
 
     const pollVideoStatus = async (uuid: string) => {
         try {
-            const response = await axios.get(`${LocalHost}/video/status/${uuid}`);
+            const response = await axios.get(`${BASE_URL}/video/status/${uuid}`);
             const data = response.data;
             setProgress(data.progress || 0);
 
@@ -32,7 +32,7 @@ const VideoGenRunway = () => {
                 setGifUrl(data.gif_url);
                 setIsGeneratingVideo(false);
             } else if (data.progress < 1) {
-                setTimeout(() => pollVideoStatus(uuid), 5000);  // Keep polling until done
+                setTimeout(() => pollVideoStatus(uuid), 5000); 
             }
         } catch (error) {
             console.error('Error fetching video status:', error);
@@ -47,14 +47,13 @@ const VideoGenRunway = () => {
             return;
         }
 
-        const apiUrl = `${LocalHost}/video`;
+        const apiUrl = `${BASE_URL}/video`;
 
         setError('');
         setIsGeneratingVideo(true);
-        setProgress(0);  // Reset the progress bar
+        setProgress(0); 
 
         try {
-            // Call your backend API to initiate video generation
             const response = await axios.post(`${apiUrl}/generate`, {
                 prompt,
                 model,
@@ -68,20 +67,19 @@ const VideoGenRunway = () => {
 
             const { uuid } = response.data;
 
-            // Poll for the video status using the uuid
             const pollStatus = setInterval(async () => {
                 const statusResponse = await axios.get(`${apiUrl}/status/${uuid}`);
                 const { progress, url, gif_url, status } = statusResponse.data;
 
-                setProgress(progress);  // Update the progress bar
+                setProgress(progress); 
 
                 if (status === 'success' && progress === 1) {
                     setVideoUrl(url);
                     setGifUrl(gif_url);
-                    clearInterval(pollStatus);  // Stop polling when the video is ready
-                    setIsGeneratingVideo(false); // Set generation to false only after completion
+                    clearInterval(pollStatus);  
+                    setIsGeneratingVideo(false); 
                 }
-            }, 5000);  // Poll every 5 seconds
+            }, 5000);  
         } catch (error) {
             console.error('Error generating video:', error);
             setError('Failed to generate video. Please try again.');

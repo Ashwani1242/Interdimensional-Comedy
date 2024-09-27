@@ -5,7 +5,7 @@ import VideoGenRunway from "./VideoGenRunway";
 import VideoGenTavus from "./VideoGenTavus";
 
 function ComedyShowPage() {
-    const [activeTab, setActiveTab] = useState<string>('DID'); // Initialize active tab
+    const [activeTab, setActiveTab] = useState<string>('DID'); 
 
     const renderComponent = () => {
         switch (activeTab) {
