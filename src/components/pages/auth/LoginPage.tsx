@@ -67,7 +67,7 @@ function LoginPage() {
   }
 
   return (
-    <div className="h-full w-full rounded-3xl relative bg-neutral-900 p-4 flex gap-x-4 items-center justify-center">
+    <div className="h-full w-full rounded-3xl relative bg-neutral-900 md:p-4 flex gap-x-4 items-center justify-center">
       <div className="flex-1 max-w-[600px] z-40 mt-20 xl:mt-4 h-full w-full rounded-xl p-10 md:p-20 absolute xl:relative xl:flex flex-col justify-center">
         <div className="text-3xl md:text-5xl uppercas font-bold bg-gradient-to-br from-pink-500 via-purple-400 to-blue-300 bg-clip-text text-transparent pb-2 md:pb-6">
           Welcome Back!
@@ -140,7 +140,7 @@ function LoginPage() {
         </div>
       </div>
 
-      <div className="h-full w-full rounded-xl flex-1 relative">
+      <div className="h-full w-full rounded-xl md:flex-1 relative">
         <Link to={'/'} className="absolute top-2 md:top-4 left-4 md:left-8 z-50"><Arrow title="Back to Homepage" customClass="w-6 sm:w-8 md:w-10" /></Link>
         <div
           style={{ backgroundImage: `url(${webData.top[1].imageUrl})` }}

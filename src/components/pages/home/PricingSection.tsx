@@ -10,10 +10,10 @@ function PricingSection() {
 
         <div className="w-full ring-1 ring-white/20 h-full rounded-3xl relative overflow-hidden md:max-h-[600px] max-w-[1200px] max-h-fit">
           <InteractiveDisplay />
-          <div className="w-full h-full bg-neutral-950 absolute md:hidden"></div>
+          <div className="w-full h-full bg-neutral-950 bg-dots absolute md:hidden"></div>
           <div className="p-8 lg:p-20 flex flex-col items-center justify-center">
             <div className="text-md sm:text-2xl md:text-4xl font-semibold relative z-20 w-full h-20 mb-4 md:mb-16">
-              <span className="blur-md top-0 absolute text-nowrap left-0 w-full">
+              {/* <span className="blur-md top-0 absolute text-nowrap left-0 w-full">
                 Endless Inspirations, <br />
                 <ReactTyped
                   strings={[`Just For You at Your Command.`]}
@@ -24,8 +24,8 @@ function PricingSection() {
                   showCursor={true}
                   backDelay={2000}
                 />
-              </span>
-              <span className="blur-s top-0 absolute text-nowrap left-0">
+              </span> */}
+              <span className="top-0 absolute text-nowrap left-0">
                 Endless Inspirations, <br />
                 <ReactTyped
                   strings={[`Just For You at Your Command.`]}

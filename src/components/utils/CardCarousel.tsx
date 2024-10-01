@@ -14,7 +14,7 @@ interface ImageCarouselProps {
 }
 
 const CardCarousel: React.FC<ImageCarouselProps> = ({ slides, title, width = 360, landscape = true }) => {
-    const [current, setCurrent] = useState<number>(1);
+    const [current, setCurrent] = useState<number>(0);
 
     const previousSlide = () => {
         setCurrent(current === 0 ? slides.length - 1 : current - 1);
@@ -27,8 +27,8 @@ const CardCarousel: React.FC<ImageCarouselProps> = ({ slides, title, width = 360
     return (
         <div
             // style={{height: landscape ? `${(width / 1.5) + (width / 1.2)}px` : `${(width * 1.5) + (width / 1.2)}px` }}
-            className="relative w-full max-w-[1920px] h-fit lg:px-32 xl:px-96 px-8 py-16 rounded-lg flex flex-col justify-normal items-center">
-            <div className='flex w-full items-center justify-between py-8'>
+            className="relative w-full max-w-[1920px]/ h-fit  py-16 rounded-lg flex flex-col justify-normal items-center">
+            <div className='flex w-full items-center justify-between py-8 px-8 lg:px-32 xl:px-80'>
                 <span className='text-xl md:text-3xl'>{title}</span>
                 <div className='flex'>
                     <button onClick={previousSlide} className="flex items-center text-white px-2 text-3xl">
@@ -39,37 +39,39 @@ const CardCarousel: React.FC<ImageCarouselProps> = ({ slides, title, width = 360
                     </button>
                 </div>
             </div>
-            <div className="w-full rounded-lg">
-                <div
-                    className="flex transition-transform ease-in-out duration-1000 gap-x-8 w-fit h-full"
-                    style={{
-                        transform: `translateX(-${(width + 32) * current}px)`,
-                    }}>
-                    {slides.map((s) => (
-                        <div
-                            key={s.id}
-                            style={{
-                                width: `${width}px`,
-                                height: landscape ? `${width / 1.5}px` : `${width * 1.5}px`,
-                            }}
-                            className={`relative flex justify-center items-center hover:scale-[1.03] transition-all duration-500 cursor-pointer`}>
+            <div className="w-full grid-background-animated border-y-[3px] border-[#212225] py-8 px-8 lg:px-32 xl:px-80">
+                <div className="w-full rounded-lg">
+                    <div
+                        className="flex transition-transform ease-in-out duration-500 gap-x-8 w-fit h-full"
+                        style={{
+                            transform: `translateX(-${(width + 32) * current}px)`,
+                        }}>
+                        {slides.map((s,i ) => (
                             <div
-                                style={{ backgroundImage: `url(${s.imageUrl})` }}
-                                className="w-full h-full absolute bg-no-repeat bg-center bg-cover filter brightness-[.9] rounded-lg" />
-                        </div>
+                                key={s.id}
+                                style={{
+                                    width: `${width}px`,
+                                    height: landscape ? `${width / 1.5}px` : `${width * 1.5}px`,
+                                }}
+                                className={`relative flex justify-center items-center hover:scale-[1.03] transition-all duration-300 cursor-pointer ${i < current ? 'brightness-[.2]' : ''}`}>
+                                <div
+                                    style={{ backgroundImage: `url(${s.imageUrl})` }}
+                                    className="w-full h-full absolute bg-no-repeat bg-center bg-cover filter brightness-[.9] rounded-lg" />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div className="mt-8 bottom-4 flex justify-center gap-4 w-full">
+                    {slides.map((_, i) => (
+                        <div
+                            onClick={() => setCurrent(i)}
+                            key={`circle-${i}`}
+                            className={`w-2 h-2 rounded-full cursor-pointer ${i === current ? "bg-white" : "bg-gray-500"
+                                }`}
+                        ></div>
                     ))}
                 </div>
             </div>
-            {/* <div className="absolute bottom-4 flex justify-center gap-4 w-full">
-                {slides.map((_, i) => (
-                    <div
-                        onClick={() => setCurrent(i)}
-                        key={`circle-${i}`}
-                        className={`w-4 h-[1px] rounded-full cursor-pointer ${i === current ? "bg-white" : "bg-gray-500"
-                            }`}
-                    ></div>
-                ))}
-            </div> */}
         </div>
     );
 };

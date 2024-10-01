@@ -2,6 +2,7 @@ import Footer from "../../Footer";
 import Navbar from "../../Navbar";
 import GallerySection from "./GallerySection";
 import HeroSection from "./HeroSection";
+import Introduction from "./Introduction";
 import PricingSection from "./PricingSection";
 
 function HomePage() {
@@ -9,6 +10,7 @@ function HomePage() {
     <>
       <Navbar />
       <HeroSection />
+      <Introduction />
       <GallerySection />
       <PricingSection />
       <Footer />

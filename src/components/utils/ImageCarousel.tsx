@@ -73,9 +73,9 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ slides }) => {
                                     <span className="xl:text-3xl lg:text-xl"> {s.subTitleOne} <br /> {s.subTitleTwo} </span>
                                 </div>
                                 <div className="flex gap-x-4 md:gap-x-8 w-full text-sm md:text-xl items-center justify-center md:justify-start" >
-                                    <PrimaryButton label="Try for free!" customClass="text-nowrap" />
+                                    <PrimaryButton label="Try Now!" customClass="text-nowrap" />
                                     <div className="hover:animate-pulse hover:brightness-90 duration-500 font-semibold py-2 px-4 cursor-pointer text-white hover:text-indigo-100 transition-all hover:-translate-y-[2px]">
-                                        Explore
+                                        Watch Demo
                                     </div>
                                 </div>
                             </div>
