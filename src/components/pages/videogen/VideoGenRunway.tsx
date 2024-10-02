@@ -55,7 +55,7 @@ const VideoGenRunway = () => {
 
         try {
             const response = await axios.post(`${apiUrl}/generate`, {
-                prompt,
+                prompt: `A ${prompt}, dancing and headbanging in the jungle in front of a large beautiful waterfall`,
                 model,
                 width,
                 height,
