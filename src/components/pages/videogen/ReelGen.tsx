@@ -1,5 +1,6 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import Loader from '../../../icons/Loader';
+import { BASE_URL } from '../../../../config';
 
 const ReelGen: React.FC = () => {
   const [image, setImage] = useState<File | null>(null);
@@ -32,7 +33,7 @@ const ReelGen: React.FC = () => {
     formData.append('image', image);
 
     try {
-      const response = await fetch('http://localhost:8000/api/reel-gen/generate-summary', {
+      const response = await fetch(`${BASE_URL}/api/reel-gen/generate-summary`, {
         method: 'POST',
         body: formData,
       });
