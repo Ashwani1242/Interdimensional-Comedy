@@ -10,6 +10,8 @@ function ComedyShowPage() {
 
     const renderComponent = () => {
         switch (activeTab) {
+            case 'Reel':
+                return <ReelGen />;
             case 'DID':
                 return <VideoGenDID />;
             case 'Tavus':
@@ -26,11 +28,16 @@ function ComedyShowPage() {
             <Navbar />
 
             <div className="">
-                {/* {renderComponent()} */}
-                <ReelGen />
+                {renderComponent()}
+                {/* <ReelGen /> */}
             </div>
 
             <div className="flex justify-center mb-20">
+                <button
+                    className={`px-4 py-2 ${activeTab === 'Reel' ? 'bg-gradient-to-br from-red-500 to-indigo-500 text-white' : 'bg-neutral-800'} mx-2 rounded-sm`}
+                    onClick={() => setActiveTab('Reel')}>
+                    Reel Gen
+                </button>
                 <button
                     className={`px-4 py-2 ${activeTab === 'DID' ? 'bg-gradient-to-br from-red-500 to-indigo-500 text-white' : 'bg-neutral-800'} mx-2 rounded-sm`}
                     onClick={() => setActiveTab('DID')}>
