@@ -3,6 +3,7 @@ import Navbar from "../../Navbar";
 import VideoGenDID from "./VideoGenDID";
 import VideoGenRunway from "./VideoGenRunway";
 import VideoGenTavus from "./VideoGenTavus";
+import ReelGen from "./ReelGen";
 
 function ComedyShowPage() {
     const [activeTab, setActiveTab] = useState<string>('DID'); 
@@ -25,7 +26,8 @@ function ComedyShowPage() {
             <Navbar />
 
             <div className="">
-                {renderComponent()}
+                {/* {renderComponent()} */}
+                <ReelGen />
             </div>
 
             <div className="flex justify-center mb-20">
