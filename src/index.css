@@ -25,10 +25,13 @@
     height: calc(var(--slide-width) * 1.5);
 }
 
-
 body {
     padding: 0;
     margin: 0;
+    background-color: #0f0f11;
+}
+
+.bg-primary {
     background-color: #0f0f11;
 }
 

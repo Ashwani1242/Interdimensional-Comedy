@@ -63,7 +63,7 @@ function MusicGenPage() {
     // console.log(isGeneratingMusic)
 
     return (
-        <div className="flex flex-col justify-center items-center xl:h-screen w-screen pt-24 md:px-40">
+        <div className="flex flex-col justify-center items-center xl:h-screen /w-screen md:px-20">
             <div className='flex flex-col xl:flex-row items-center h-fit xl:h-full w-full pb-16'>
                 <div className="flex-1 flex flex-col justify-normal xl:h-full items-center space-y-4 px-8 md:px-16 py-8">
                     <div className='text-2xl md:text-4xl uppercase font-bold bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent pb-8'>
