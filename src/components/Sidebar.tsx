@@ -3,11 +3,8 @@ import MainIcon from "../icons/MainIcon"
 import PrimaryButton from "./utils/PrimaryButton"
 import { useEffect, useState } from "react"
 
-interface props {
-    color?: string
-}
 
-function Sidebar({ color = "#0f0f11" }: props) {
+function Sidebar() {
 
     const [loggedInUser, setLoggedInUser] = useState('')
     const [isMenuOpen, setisMenuOpen] = useState(false)

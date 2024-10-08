@@ -2,7 +2,7 @@
 // import LoginPage from "./components/pages/auth/LoginPage";
 // import AuthPage from "./components/pages/auth/AuthPage";
 // import AnimatedCursor from "react-animated-cursor";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 // import SignupPage from "./components/pages/auth/SignupPage";
 // import MyGallery from "./components/pages/MyGallery";
 // import ComedyShowPage from "./components/pages/videogen/ComedyShowPage";

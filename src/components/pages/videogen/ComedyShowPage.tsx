@@ -1,28 +1,28 @@
-import { useState } from "react";
-import Navbar from "../../Navbar";
-import VideoGenDID from "./VideoGenDID";
-import VideoGenRunway from "./VideoGenRunway";
+// import { useState } from "react";
+// // import Navbar from "../../Navbar";
+// import VideoGenDID from "./VideoGenDID";
+// import VideoGenRunway from "./VideoGenRunway";
 import VideoGenTavus from "./VideoGenTavus";
 import ReelGen from "./ReelGen";
 import { Route, Routes } from "react-router-dom";
 
 function ComedyShowPage() {
-    const [activeTab, setActiveTab] = useState<string>('Reel');
+    // const [activeTab, setActiveTab] = useState<string>('Reel');
 
-    const renderComponent = () => {
-        switch (activeTab) {
-            case 'Reel':
-                return <ReelGen />;
-            case 'DID':
-                return <VideoGenDID />;
-            case 'Tavus':
-                return <VideoGenTavus />;
-            case 'Runway':
-                return <VideoGenRunway />;
-            default:
-                return null;
-        }
-    };
+    // const renderComponent = () => {
+    //     switch (activeTab) {
+    //         case 'Reel':
+    //             return <ReelGen />;
+    //         case 'DID':
+    //             return <VideoGenDID />;
+    //         case 'Tavus':
+    //             return <VideoGenTavus />;
+    //         case 'Runway':
+    //             return <VideoGenRunway />;
+    //         default:
+    //             return null;
+    //     }
+    // };
 
     return (
         <>
