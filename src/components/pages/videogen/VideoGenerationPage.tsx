@@ -27,7 +27,7 @@ function VideoGenerationPage() {
             {/* <MusicGenPage /> */}
             <div className="flex flex-col w-full">
                 <div className="text-7xl pl-8 py-16" > {activeTab} </div>
-                <div className="flex w-full justify-start sticky top-0 py-4 mb-6 bg-primary">
+                <div className="flex w-full justify-start sticky top-0 py-4 bg-primary">
                     {tabList.map((tab) => (
                         <button
                         key={`key_${tab}`}

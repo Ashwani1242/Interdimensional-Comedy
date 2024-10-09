@@ -66,7 +66,7 @@ const ReelGen: React.FC = () => {
   return (
     <div className="p-4 gap-x-8 flex w-full">
       <div className="max-w-md p-4 flex flex-col w-full bg-white/ /text-black shadow-md rounded-lg">
-        <h2 className="text-2xl font-semibold mb-4"> Bored of everyone talking good about you? Tell VibeVision AI to roast you instead! </h2>
+        <h2 className="text-2xl font-bold bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent mb-4"> Tierd of everyone talking good about you? Tell VibeVision AI to roast you instead! </h2>
         <div className="space-y-4">
 
           <div className="max-w-md mx-auto mt-8 rounded-lg overflow-hidden/ md:max-w-xl">
@@ -145,15 +145,6 @@ const ReelGen: React.FC = () => {
           </div>
         )}
 
-        {audio && (
-          <div className="mt-6 p-4 w-full bg-neutral-800 rounded-md">
-            <h3 className="font-bold mb-2">Audio:</h3>
-            <audio controls>
-              <source src={`${BASE_URL}/${audio}`} type="audio/mp3" />
-              Your browser does not support the audio element.
-            </audio>
-          </div>
-        )}
         {video && (
           <div className="mt-6 p-4 w-full bg-neutral-800 rounded-md">
             <h3 className="font-bold mb-2">Video:</h3>
@@ -161,6 +152,16 @@ const ReelGen: React.FC = () => {
               <source src={`${BASE_URL}/${video}`} type="video/mp4" />
               Your browser does not support the video element.
             </video>
+          </div>
+        )}
+        
+        {audio && (
+          <div className="mt-6 p-4 w-full bg-neutral-800 rounded-md">
+            <h3 className="font-bold mb-2">Audio:</h3>
+            <audio controls>
+              <source src={`${BASE_URL}/${audio}`} type="audio/mp3" />
+              Your browser does not support the audio element.
+            </audio>
           </div>
         )}
       </div>

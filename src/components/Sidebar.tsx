@@ -41,18 +41,27 @@ function Sidebar() {
 
                 <Line />
 
-                <NavLink to={'/video'} className={({ isActive }) => `${isActive ? 'text-indigo-300' : 'text-white'} text-lg/ pt-4/ cursor-pointer hover:text-indigo-200 transition-all duration-500 hover:-translate-y-[2px]`}>Video</NavLink>
-
-                {/* <Line />s */}
-
-                <NavLink to={'/music'} className={({ isActive }) => `${isActive ? 'text-indigo-300' : 'text-white'} text-lg/ pt-4/ cursor-pointer hover:text-indigo-200 transition-all duration-500 hover:-translate-y-[2px]`}>Music</NavLink>
+                <NavLink to={'/'} className={({ isActive }) => `${isActive ? 'text-indigo-300' : 'text-white'} text-lg pt-4/ cursor-pointer hover:text-indigo-200 transition-all duration-500 hover:-translate-y-[2px]`}>Explore</NavLink>
 
                 <Line />
 
-                <NavLink to={'/kids-music'} className={({ isActive }) => `${isActive ? 'text-indigo-300' : 'text-white'} cursor-pointer hover:text-indigo-200 transition-all duration-500 hover:-translate-y-[2px]`}>Kid's Music</NavLink>
-                <NavLink to={'/pricing'} className={({ isActive }) => `${isActive ? 'text-indigo-300' : 'text-white'} cursor-pointer hover:text-indigo-200 transition-all duration-500 hover:-translate-y-[2px]`}>Pricing</NavLink>
-                {localStorage.getItem('loggedInUser') && <NavLink to={'/gallery'} className={({ isActive }) => `${isActive ? 'text-indigo-300' : 'text-white'} cursor-pointer hover:text-indigo-200 transition-all duration-500 hover:-translate-y-[2px]`}>Gallery | {localStorage.getItem('loggedInUser')} </NavLink>}
-                <NavLink to={'/whats-new'} className={({ isActive }) => `${isActive ? 'text-indigo-300' : 'text-white'} cursor-pointer hover:text-indigo-200 transition-all duration-500 hover:-translate-y-[2px]`}>What's New</NavLink>
+                <NavLink to={'/create'} className={({ isActive }) => `${isActive ? 'text-indigo-300' : 'text-white'} text-lg pt-4/ cursor-pointer hover:text-indigo-200 transition-all duration-500 hover:-translate-y-[2px]`}>Create</NavLink>
+
+
+                <NavLink to={'/create/video'} className={({ isActive }) => `${isActive ? 'text-indigo-300' : 'text-white'} text-lg/ pl-4 cursor-pointer hover:text-indigo-200 transition-all duration-500 hover:-translate-y-[2px]`}>Video</NavLink>
+
+                {/* <Line />s */}
+
+                <NavLink to={'/create/music'} className={({ isActive }) => `${isActive ? 'text-indigo-300' : 'text-white'} text-lg/ pl-4 cursor-pointer hover:text-indigo-200 transition-all duration-500 hover:-translate-y-[2px]`}>Music</NavLink>
+
+                <Line />
+
+                {/* <NavLink to={'/kids-music'} className={({ isActive }) => `${isActive ? 'text-indigo-300' : 'text-white'} cursor-pointer hover:text-indigo-200 transition-all duration-500 hover:-translate-y-[2px]`}>Kid's Music</NavLink> */}
+                <NavLink to={'/pricing'} className={({ isActive }) => `${isActive ? 'text-indigo-300' : 'text-white'} text-lg cursor-pointer hover:text-indigo-200 transition-all duration-500 hover:-translate-y-[2px]`}>Pricing</NavLink>
+
+                {localStorage.getItem('loggedInUser') && <NavLink to={'/gallery'} className={({ isActive }) => `${isActive ? 'text-indigo-300' : 'text-white'} text-lg cursor-pointer hover:text-indigo-200 transition-all duration-500 hover:-translate-y-[2px]`}>Gallery | {localStorage.getItem('loggedInUser')} </NavLink>}
+
+                <NavLink to={'/whats-new'} className={({ isActive }) => `${isActive ? 'text-indigo-300' : 'text-white'} text-lg cursor-pointer hover:text-indigo-200 transition-all duration-500 hover:-translate-y-[2px]`}>What's New</NavLink>
             </div>
             {localStorage.getItem('loggedInUserEmail') ?
                 <div className="xl:flex gap-x-8 justify-center items-center hidden">

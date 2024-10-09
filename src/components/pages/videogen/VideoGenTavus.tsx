@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import PrimaryButton from '../../utils/PrimaryButton';
+import Loader from '../../../icons/Loader';
 
 function VideoGenTavus() {
     const [prompt, setPrompt] = useState<string>('');
@@ -10,7 +11,7 @@ function VideoGenTavus() {
     const [ageGroup, setAgeGroup] = useState<string>('kids (5 - 12)');
     const [duration, setDuration] = useState<string>('50');
     const [generatedPrompt, setGeneratedPrompt] = useState<string>('');
-    const [generatedScript, setGeneratedScript] = useState<string>('Your script will be shown here');
+    const [generatedScript, setGeneratedScript] = useState<string>('');
     const [error, setError] = useState<string>('');
     const [isGeneratingScript, setIsGeneratingScript] = useState<boolean>(false);
     const [isGeneratingVideo, setIsGeneratingVideo] = useState<boolean>(false);
@@ -66,10 +67,10 @@ function VideoGenTavus() {
                 'Content-Type': 'application/json',
             },
             data: {
-                replica_id: 'r79e1c033f', 
+                replica_id: 'r79e1c033f',
                 script: script,
                 video_name: 'Comedy Show',
-                background_url: '', 
+                background_url: '',
             },
         };
 
@@ -149,20 +150,19 @@ function VideoGenTavus() {
     };
 
     return (
-        <div className="flex flex-col justify-center items-center/ xl:h-screen w-screen/ pt-24/ md:px-20">
-            <div className='flex flex-col xl:flex-row items-center h-fit xl:h-full w-full pb-16'>
-                <div className="flex-1 flex flex-col justify-normal xl:h-full items-center space-y-4 px-12 md:px-16 py-8">
-                    <div className='text-2xl md:text-4xl uppercase font-bold bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent pb-8'>
-                        Generate Your Comedy Show
-                    </div>
-                    
+        <div className="p-4 gap-x-8 flex w-full">
+            <div className="max-w-md p-4 flex flex-col w-full bg-white/ /text-black shadow-md rounded-lg">
+                <div className='text-2xl font-bold bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent mb-4'>
+                    Let a character narrate a funny story for you!
+                </div>
+                <div className="space-y-4">
                     <div className='w-full h-[200px] md:h-[100px] md:focus-within:h-[160px] duration-500 relative p-[1px] bg-gradient-to-br from-red-400 from-30% via-indigo-400 to-purple-400 rounded-sm'>
                         {error && <p className="text-red-500 absolute -top-8">{error}</p>}
                         <textarea
                             value={prompt}
                             onChange={(e) => setPrompt(e.target.value)}
                             placeholder="Enter your prompt"
-                            className="border/ outline-none p-2 h-full w-full resize-none rounded-sm"
+                            className="border/ outline-none p-2 h-full w-full resize-none rounded-sm bg-neutral-950"
                             required />
                     </div>
 
@@ -171,7 +171,7 @@ function VideoGenTavus() {
                         <select
                             value={theme}
                             onChange={(e) => setTheme(e.target.value)}
-                            className="border p-2">
+                            className="border p-2 bg-neutral-950">
                             <option value="fantasy">Fantasy</option>
                             <option value="science fiction">Science Fiction</option>
                             <option value="fairy tale">Fairy Tale</option>
@@ -182,7 +182,7 @@ function VideoGenTavus() {
                         <select
                             value={tone}
                             onChange={(e) => setTone(e.target.value)}
-                            className="border p-2">
+                            className="border p-2 bg-neutral-950">
                             <option value="sarcastic">Sarcastic</option>
                             <option value="hilarious">Hilarious</option>
                             <option value="silly">Silly</option>
@@ -192,7 +192,7 @@ function VideoGenTavus() {
                         <select
                             value={ageGroup}
                             onChange={(e) => setAgeGroup(e.target.value)}
-                            className="border p-2">
+                            className="border p-2 bg-neutral-950">
                             <option value="kids (5 - 12)">Kids (5 - 12)</option>
                             <option value="teens (13 - 18)">Teens (13 - 18)</option>
                             <option value="adults (18 - 35)">Adults (18 - 35)</option>
@@ -201,7 +201,7 @@ function VideoGenTavus() {
                         <select
                             value={duration}
                             onChange={(e) => setDuration(e.target.value)}
-                            className="border p-2">
+                            className="border p-2 bg-neutral-950">
                             <option value="50">30 Seconds</option>
                             <option value="100">1 Minute</option>
                             <option value="150">1 Minute 30 Seconds</option>
@@ -220,29 +220,33 @@ function VideoGenTavus() {
                         <PrimaryButton label={isGeneratingScript ? 'Generating Script...' : isGeneratingVideo ? 'Generating Video...' : 'Generate'} />
                     </button>
 
-                    <div className='h-fit w-full py-4'>
-                        <div className='w-full h-[2px] bg-white/50'></div>
-                    </div>
+                </div>
 
-                    <div className="p-4 xl:flex-1 border mt-4 w-full h-[200px] xl:h-full overflow-y-auto bg-black/50 text-gray-400 overflow-hidden">{generatedScript}</div>
-                </div>
-                {/* <div className='py-40 h-full'> <div className='h-full w-[2px] bg-neutral-500' /> </div> */}
-                <div className="xl:flex-1 flex flex-col w-3/4 justify-center items-center h-96 xl:h-full bg-neutral-800 rounded-xl">
-                    {videoUrl ? "" : "Your Video Here"}
-                    {isFetchingVideo ? (
-                        <p className="text-blue-500">Loading video...</p>
-                    ) : (
-                        videoUrl && (
-                            <div className="p-4 border/ mt-4/ gap-y-2">
-                                <p>Video generated successfully!</p>
-                                <video controls src={videoUrl} className="w-full max-h-[480px] mt-2 mb-4" />
-                                <a href={videoUrl} download className="bg-green-500 text-white p-2 rounded">
-                                    Download Video
-                                </a>
-                            </div>
-                        )
-                    )}
-                </div>
+            </div>
+            {/* <div className='py-40 h-full'> <div className='h-full w-[2px] bg-neutral-500' /> </div> */}
+            <div className="p-4 flex flex-col flex-1 w-full items-center shadow-md rounded-lg">
+                {videoUrl || isFetchingVideo ? "" : "Your Video Here"}
+                {isFetchingVideo ? (
+                    <div className="flex flex-col justify-between text-sm/ mt-2">
+                    <div className={`${videoUrl ? 'text-green-500' : 'text-gray-400'} flex flex-col gap-y-4 font-semibold items-center m-4 p-2 bg-gra/y-200 rounded-xl`}>
+                      <Loader isLoading={!videoUrl} />
+                      <span className='animate-pulse'>Your video is in Queue...</span>
+                    </div>
+                  </div>
+                ) : (
+                    videoUrl && (
+                        <div className="p-4 border/ mt-4/ gap-y-2">
+                            <p>Video generated successfully!</p>
+                            <video controls src={videoUrl} className="w-full max-h-[480px] mt-2 mb-4" />
+                            <a href={videoUrl} download className="bg-green-500 text-white p-2 rounded">
+                                Download Video
+                            </a>
+                        </div>
+                    )
+                )}
+                
+                {generatedScript && 
+                <div className="p-4 xl:flex-1 max-w-md max-h-[200px] border mt-4 w-full h-[200px] xl:h-full overflow-y-auto bg-black/50 text-gray-400 overflow-hidden">{generatedScript}</div> }
             </div>
         </div>
     );
