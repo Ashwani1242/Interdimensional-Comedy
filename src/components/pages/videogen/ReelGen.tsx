@@ -149,7 +149,7 @@ const ReelGen: React.FC = () => {
           <div className="mt-6 p-4 w-full bg-neutral-800 rounded-md">
             <h3 className="font-bold mb-2">Video:</h3>
             <video controls width="100%" className='max-w-md'>
-              <source src={`${BASE_URL}/${video}`} type="video/mp4" />
+              <source src={`https://9ea4-2409-40e3-1000-fea3-bd54-afd6-7595-948.ngrok-free.app/${video}`} type="video/mp4" />
               Your browser does not support the video element.
             </video>
           </div>
@@ -159,7 +159,7 @@ const ReelGen: React.FC = () => {
           <div className="mt-6 p-4 w-full bg-neutral-800 rounded-md">
             <h3 className="font-bold mb-2">Audio:</h3>
             <audio controls>
-              <source src={`${BASE_URL}/${audio}`} type="audio/mp3" />
+              <source src={`https://9ea4-2409-40e3-1000-fea3-bd54-afd6-7595-948.ngrok-free.app/${audio}`} type="audio/mp3" />
               Your browser does not support the audio element.
             </audio>
           </div>
