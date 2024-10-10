@@ -2,6 +2,7 @@ import React, { useState, ChangeEvent } from 'react';
 import Loader from '../../../icons/Loader';
 import { BASE_URL } from '../../../../config';
 import PrimaryButton from '../../utils/PrimaryButton';
+// import axios from 'axios';
 
 const ReelGen: React.FC = () => {
   const [image, setImage] = useState<File | null>(null);
@@ -26,6 +27,77 @@ const ReelGen: React.FC = () => {
     setError(null); // Reset error on new file upload
   };
 
+  // const handleGenerate = async () => {
+  //   if (!image) {
+  //     alert('Please upload an image before submitting.');
+  //     return;
+  //   }
+
+  //   setLoading(true);
+  //   const formData = new FormData();
+  //   formData.append('image', image);
+
+  //   try {
+  //     const response = await fetch(`${BASE_URL}/api/reel-gen/generate-summary`, {
+  //       method: 'POST',
+  //       body: formData,
+  //       headers: new Headers({
+  //         "ngrok-skip-browser-warning": "1",
+  //       }),
+  //     });
+
+  //     if (response.ok) {
+  //       const data = await response.json();
+
+  //       console.log(data)
+
+  //       setSummary(data.summary || 'No summary generated.');
+  //       // setAudio(data.audio);  // Mark audio as generated
+  //       setVideo(data.video); // Set video file path
+  //       setIsVideoGenerated(true); // Mark video as generated
+  //       console.log(`${BASE_URL}/${data.video}`)
+  //     } else {
+  //       console.error('Error from server:', response.status);
+  //       setError('Failed to generate summary, audio, or video');
+  //     }
+  //   } catch (error) {
+  //     console.error('Error generating summary:', error);
+  //     setError('An error occurred while generating the summary, audio, or video');
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
+  //   const handleGenerate = async () => {
+  //     if (!image) {
+  //         alert('Please upload an image before submitting.');
+  //         return;
+  //     }
+
+  //     setLoading(true);
+  //     const formData = new FormData();
+  //     formData.append('image', image);
+
+  //     try {
+  //         const response = await axios.post(`${BASE_URL}/api/reel-gen/generate-summary`, formData, {
+  //             headers: {
+  //                 "ngrok-skip-browser-warning": "1",
+  //                 "User-Agent": "MyApp/0.0.1", // Custom User-Agent
+  //             },
+  //         });
+
+  //         setSummary(response.data.summary || 'No summary generated.');
+  //         setVideo(response.data.video); // Set video file path
+  //         setIsVideoGenerated(true); // Mark video as generated
+  //         console.log(`${BASE_URL}/${response.data.video}`);
+  //     } catch (error) {
+  //         console.error('Error generating summary:', error);
+  //         setError('An error occurred while generating the summary, audio, or video');
+  //     } finally {
+  //         setLoading(false);
+  //     }
+  // };
+
   const handleGenerate = async () => {
     if (!image) {
       alert('Please upload an image before submitting.');
@@ -40,6 +112,9 @@ const ReelGen: React.FC = () => {
       const response = await fetch(`${BASE_URL}/api/reel-gen/generate-summary`, {
         method: 'POST',
         body: formData,
+        headers: new Headers({
+          "ngrok-skip-browser-warning": "1",
+        }),
       });
 
       if (response.ok) {
@@ -48,9 +123,19 @@ const ReelGen: React.FC = () => {
         console.log(data)
 
         setSummary(data.summary || 'No summary generated.');
-        // setAudio(data.audio);  // Mark audio as generated
-        setVideo(data.video); // Set video file path
+
+        // Fetch the video as a Blob
+        const videoResponse = await fetch(`${BASE_URL}/${data.video}`, {
+          headers: new Headers({
+            "ngrok-skip-browser-warning": "1",
+          }),
+        });
+        const videoBlob = await videoResponse.blob();
+        const videoUrl = URL.createObjectURL(videoBlob);
+
+        setVideo(videoUrl); // Set video URL for playback
         setIsVideoGenerated(true); // Mark video as generated
+        console.log(videoUrl); // Log the temporary video URL
       } else {
         console.error('Error from server:', response.status);
         setError('Failed to generate summary, audio, or video');
@@ -145,16 +230,15 @@ const ReelGen: React.FC = () => {
           </div>
         )}
 
-        {video && (
+        {(isVideoGenerated && video) && (
           <div className="mt-6 p-4 w-full bg-neutral-800 rounded-md">
-            <h3 className="font-bold mb-2">Video:</h3>
-            <video controls width="100%" className='max-w-md'>
-              <source src={`${BASE_URL}/${video}`} />
-              Your browser does not support the video element.
-            </video>
-          </div>
+          <h3 className="font-bold mb-2">Video:</h3>
+          <video controls width="100%" src={video} className='max-w-md video-js vjs-theme-sea'>
+            Your browser does not support the video element.
+          </video>
+        </div>
         )}
-        
+
         {/* {audio && (
           <div className="mt-6 p-4 w-full bg-neutral-800 rounded-md">
             <h3 className="font-bold mb-2">Audio:</h3>
