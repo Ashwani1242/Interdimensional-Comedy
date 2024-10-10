@@ -1,7 +1,7 @@
 function Introduction() {
     return (
         <div
-            className='flex flex-col gap-4 p-12 xl:p-16 m-12 text-center ring-2 ring-neutral-400 overflow-hidden relative rounded-md'>
+            className='flex flex-col gap-4 p-12 xl:p-16 m-12 text-center ring-2 ring-neutral-400 overflow-hidden/ overflow-clip h-fit relative rounded-md'>
             <div className='bg-noise'/>
             <span className='text-4xl md:text-7xl py-2 md:p-2 xl:p-4'>Advancing creativity <br /> with artificial intelligence.</span>
             <span className='text-sm md:text-base'>Interdimentional Comedy is an applied AI research company building the next era of art, <br /> entertainment and human creativity.</span>

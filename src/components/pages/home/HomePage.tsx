@@ -10,7 +10,7 @@ import PricingSection from "./PricingSection";
 function HomePage() {
   return (
     <>
-      <div className="flex flex-col w-full overflow-y-auto">
+      <div className="flex flex-col w-full overflow-y-auto overflow-x-hidden">
         {/* <Sidebar />
         <ComedyShowPage /> */}
         <HeroSection />

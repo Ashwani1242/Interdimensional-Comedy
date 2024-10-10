@@ -157,40 +157,40 @@ const ReelGen: React.FC = () => {
           <div className="max-w-md mx-auto mt-8 rounded-lg overflow-hidden/ md:max-w-xl">
             <div className="md:flex">
               <div className="w-full">
-                <div
-                  className="relative p-12 rounded-lg bg-neutral-800 flex justify-center items-center shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in-out"
-                >
-                  {selectedImage ? (
-                    <div className='relative flex flex-col w-full h-full justify-center items-center'>
-                      <div className='absolute w-full h-full flex gap-x-8 justify-center items-center'>
-                        <div
-                          style={{ backgroundImage: `url(${selectedImage})` }}
-                          className='h-40 w-32 -rotate-12 rounded-xl border-2 brightness-75 bg-cover bg-center bg-no-repeat'>
+                <div className='w-full shadow-lg rounded-lg p-[1px] bg-gradient-to-br from-red-400 from-30% via-indigo-400 to-purple-400'>
+                  <div  className="relative p-12 rounded-lg bg-neutral-900 flex justify-center items-center hover:shadow-xl transition-shadow duration-300 ease-in-out" >
+                    {selectedImage ? (
+                      <div className='relative flex flex-col w-full h-full justify-center items-center'>
+                        <div className='absolute w-full h-full flex gap-x-8 justify-center items-center'>
+                          <div
+                            style={{ backgroundImage: `url(${selectedImage})` }}
+                            className='h-40 w-32 -rotate-12 rounded-xl border-2 brightness-75 bg-cover bg-center bg-no-repeat'>
+                          </div>
+                          <span className='text-wrap z-10 text-black/ text-white font-semibold px-4 py-2 rounded-xl bg-neutral-300/'> {imageName} </span>
                         </div>
-                        <span className='text-wrap z-10 text-black/ text-white font-semibold px-4 py-2 rounded-xl bg-neutral-300/'> {imageName} </span>
                       </div>
-                    </div>
-                  ) : (
-                    <div className="flex flex-col w-full justify-center items-center">
-                      <img
-                        alt="Image"
-                        className="mb-3 text-black"
-                        src="https://img.icons8.com/dusk/64/image-file.png"
-                      />
-                      <span className="block text-gray-500 font-semibold">
-                        Drag &amp; drop an Image to generate a Roast
-                      </span>
-                      <span className="block text-gray-400 font-normal mt-1">
-                        or click to upload an Image
-                      </span>
-                    </div>
-                  )}
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleImageUpload}
-                    className="h-full w-full opacity-0 cursor-pointer absolute"
-                  />
+                    ) : (
+                      <div className="flex flex-col w-full justify-center items-center">
+                        <img
+                          alt="Image"
+                          className="mb-3 text-black"
+                          src="https://img.icons8.com/dusk/64/image-file.png"
+                        />
+                        <span className="block text-gray-500 font-semibold">
+                          Drag &amp; drop an Image to generate a Roast
+                        </span>
+                        <span className="block text-gray-400 font-normal mt-1">
+                          or click to upload an Image
+                        </span>
+                      </div>
+                    )}
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      className="h-full w-full opacity-0 cursor-pointer absolute"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -232,11 +232,11 @@ const ReelGen: React.FC = () => {
 
         {(isVideoGenerated && video) && (
           <div className="mt-6 p-4 w-full bg-neutral-800 rounded-md">
-          <h3 className="font-bold mb-2">Video:</h3>
-          <video controls width="100%" src={video} className='max-w-md video-js vjs-theme-sea'>
-            Your browser does not support the video element.
-          </video>
-        </div>
+            <h3 className="font-bold mb-2">Video:</h3>
+            <video controls width="100%" src={video} className='max-w-md video-js vjs-theme-sea'>
+              Your browser does not support the video element.
+            </video>
+          </div>
         )}
 
         {/* {audio && (

@@ -54,7 +54,7 @@ const CardCarousel: React.FC<ImageCarouselProps> = ({ slides, title, width = 360
                     </button>
                 </div>
             </div>
-            <div className="w-full grid-background-animated border-y-[3px] border-[#212225] py-8 px-8 lg:px-32 xl:px-80">
+            <div className="w-full grid-background-animated/ /border-y-[3px] border-[#212225] py-8 px-8 lg:px-32 xl:px-80">
                 <div className="w-full rounded-lg">
                     <div
                         className="flex transition-transform ease-in-out duration-300 gap-x-8 w-fit h-full"

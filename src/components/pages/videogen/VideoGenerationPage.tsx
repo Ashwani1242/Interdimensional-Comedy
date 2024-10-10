@@ -2,7 +2,7 @@ import { useState } from "react";
 import VideoGenTavus from "./VideoGenTavus";
 import ReelGen from "./ReelGen";
 
-const tabList = ['Talking Heads', 'Roast My Pic!']
+const tabList = ['Story Time', 'Roast My Pic!']
 
 function VideoGenerationPage() {
     const [activeTab, setActiveTab] = useState(tabList[0]);

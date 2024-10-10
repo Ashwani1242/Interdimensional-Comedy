@@ -17,6 +17,9 @@ import CreatePage from "./components/pages/CreatePage";
 import HomePage from "./components/pages/home/HomePage";
 import PricingPage from "./components/pages/PricingPage";
 import WhatsNewPage from "./components/pages/WhatsNewPage";
+import AuthPage from "./components/pages/auth/AuthPage";
+import LoginPage from "./components/pages/auth/LoginPage";
+import SignupPage from "./components/pages/auth/SignupPage";
 
 function App() {
   return (
@@ -33,6 +36,11 @@ function App() {
           </Route>
           <Route path="/pricing" element={<PricingPage />} />
           <Route path="/whats-new" element={<WhatsNewPage />} />
+          <Route path="/auth" element={<AuthPage />} >
+            <Route index element={<Navigate to="login" />} />
+            <Route path="login" element={<LoginPage />} />
+            <Route path="signup" element={<SignupPage />} />
+          </Route>
         </Routes>
       </div>
 
