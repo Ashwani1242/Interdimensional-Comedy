@@ -149,7 +149,7 @@ const ReelGen: React.FC = () => {
           <div className="mt-6 p-4 w-full bg-neutral-800 rounded-md">
             <h3 className="font-bold mb-2">Video:</h3>
             <video controls width="100%" className='max-w-md'>
-              <source src={`${BASE_URL}/${video}`} type="video/mp4" />
+              <source src={`${BASE_URL}/${video}`} />
               Your browser does not support the video element.
             </video>
           </div>
