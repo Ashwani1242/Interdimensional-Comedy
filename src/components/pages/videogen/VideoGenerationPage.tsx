@@ -2,7 +2,7 @@ import { useState } from "react";
 import VideoGenTavus from "./VideoGenTavus";
 import ReelGen from "./ReelGen";
 
-const tabList = ['Roast My Pic!', 'Talking Heads']
+const tabList = ['Talking Heads', 'Roast My Pic!']
 
 function VideoGenerationPage() {
     const [activeTab, setActiveTab] = useState(tabList[0]);
@@ -10,9 +10,9 @@ function VideoGenerationPage() {
     const renderComponent = () => {
         switch (activeTab) {
             case tabList[0]:
-                return <ReelGen />;
-            case tabList[1]:
                 return <VideoGenTavus />;
+            case tabList[1]:
+                return <ReelGen />;
             // case tabList[2]:
             //     return ;
             // case tabList[3]:
@@ -30,7 +30,7 @@ function VideoGenerationPage() {
                 <div className="flex w-full justify-start sticky top-0 py-4 bg-primary">
                     {tabList.map((tab) => (
                         <button
-                        key={`key_${tab}`}
+                            key={`key_${tab}`}
                             className={`px-4 py-2 ${activeTab === tab ? 'border-white' : 'border-transparent hover:border-white/50'} transition-all duration-300 border-b-4 mx-2 rounded-sm`}
                             onClick={() => setActiveTab(tab)}>
                             {tab}

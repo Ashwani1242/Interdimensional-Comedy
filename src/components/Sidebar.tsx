@@ -35,7 +35,7 @@ function Sidebar() {
                 <Link to={'/'} className="flex justify-center items-center gap-x-4 cursor-pointer py-4">
                     <MainIcon />
                     <div className='text-xl uppercas md:block hidden font-bold bg-gradient-to-br from-pink-500 via-purple-400 to-blue-300 bg-clip-text text-transparent'>
-                        VibeVision AI
+                        VibeVision AI <span className="text-xs text-white font-normal">v1</span>
                     </div>
                 </Link>
 
