@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import PrimaryButton from "./PrimaryButton";
 import Arrow from "../../icons/Arrow";
+import { Link } from "react-router-dom";
 
 type webArray = {
     id: number,
@@ -93,12 +94,12 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ slides }) => {
                             <span className="xl:text-7xl lg:text-5xl text-2xl font-bold"> {s.titleOne} <br /> {s.titleTwo} </span>
                             <span className="xl:text-3xl lg:text-xl"> {s.subTitleOne} <br /> {s.subTitleTwo} </span>
                         </div>
-                        <div className="flex gap-x-4 md:gap-x-8 w-full text-sm md:text-xl items-center justify-center md:justify-start" >
+                        <Link to='/create' className="flex gap-x-4 md:gap-x-8 w-full text-sm md:text-xl items-center justify-center md:justify-start" >
                             <PrimaryButton label="Try Now!" customClass="text-nowrap" />
                             <div className="hover:animate-pulse hover:brightness-90 duration-500 font-semibold py-2 px-4 cursor-pointer text-white hover:text-indigo-100 transition-all hover:-translate-y-[2px]">
                                 Watch Demo
                             </div>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             ))}
