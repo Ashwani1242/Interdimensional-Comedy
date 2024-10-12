@@ -90,9 +90,9 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ slides }) => {
                         style={{ backgroundImage: `url(${s.imageUrl})` }}
                         className="w-full h-full absolute bg-no-repeat bg-center bg-cover filter brightness-[.4] rounded-lg" />
                     <div className="absolute text-center md:text-left pl-16 py-16 z-50 w-3/4 h-full md:h-fit flex flex-col justify-around items-start gap-y-4 md:gap-y-8">
-                        <div className="flex flex-col gap-y-4 md:gap-y-8">
-                            <span className="xl:text-7xl lg:text-5xl text-2xl font-bold"> {s.titleOne} <br /> {s.titleTwo} </span>
-                            <span className="xl:text-3xl lg:text-xl"> {s.subTitleOne} <br /> {s.subTitleTwo} </span>
+                        <div className="flex flex-col gap-y-4 md:gap-y-4">
+                            <span className="xl:text-4xl lg:text-2xl text-2xl font-bold"> {s.titleOne} {s.titleTwo} </span>
+                            <span className="xl:text-2xl lg:text-xl"> {s.subTitleOne} <br /> {s.subTitleTwo} </span>
                         </div>
                         <Link to='/create' className="flex gap-x-4 md:gap-x-8 w-full text-sm md:text-xl items-center justify-center md:justify-start" >
                             <PrimaryButton label="Try Now!" customClass="text-nowrap" />
@@ -109,7 +109,7 @@ const ImageCarousel: React.FC<ImageCarouselProps> = ({ slides }) => {
     return (
         <div
             id="carousel-container"
-            className="relative w-full max-w-[1800px] md:h-[700px] h-[500px] rounded-lg flex flex-col justify-around items-center">
+            className="relative w-full max-w-[1800px] md:h-[300px] h-[200px] rounded-lg flex flex-col justify-around items-center">
             <div className="w-full max-w-[1800px] h-[94%] overflow-hidden rounded-lg">
                 <div
                     className="flex transition-transform ease-in-out duration-500 gap-x-16/ h-full"

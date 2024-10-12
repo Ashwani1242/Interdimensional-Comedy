@@ -7,7 +7,7 @@ import { useEffect, useState } from "react"
 function Sidebar() {
 
     const [loggedInUser, setLoggedInUser] = useState('')
-    const [isMenuOpen, setisMenuOpen] = useState(false)
+    // const [isMenuOpen, setisMenuOpen] = useState(false)
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -35,10 +35,37 @@ function Sidebar() {
                 <Link to={'/'} className="flex justify-center items-center gap-x-4 cursor-pointer py-4">
 
 
+
                     <MainIcon />
                     <div className='text-xl uppercas md:block hidden font-bold bg-gradient-to-br from-pink-500 via-purple-400 to-blue-300 bg-clip-text text-transparent'>
                         VibeVision AI <span className="text-xs text-white font-normal">v4</span>
                     </div>
+
+                    {/* <button onClick={() => setisMenuOpen((val) => !val)} className='h-10 w-10 xl:hidden/ flex justify-cente items-cente transition-all duration-300 hover:scale-110'>
+                        <div className='relative w-full h-full'>
+                            <span
+                                style={{
+                                    left: '25%',
+                                    top: isMenuOpen ? '45%' : "32%",
+                                    rotate: isMenuOpen ? '45deg' : '0deg'
+                                }}
+                                className='absolute h-[2px] w-5 bg-white transition-all duration-300 rounded-full' />
+                            <span
+                                style={{
+                                    left: '25%',
+                                    top: isMenuOpen ? '45%' : "48%",
+                                    rotate: isMenuOpen ? '-45deg' : '0deg'
+                                }}
+                                className='absolute h-[2px] w-5 bg-white transition-all duration-300 rounded-full' />
+                            <span
+                                style={{
+                                    left: '25%',
+                                    top: isMenuOpen ? '45%' : "63%",
+                                    rotate: isMenuOpen ? '45deg' : '0deg'
+                                }}
+                                className='absolute h-[2px] w-5 bg-white transition-all duration-300 rounded-full' />
+                        </div>
+                    </button> */}
                 </Link>
 
                 <Line />
@@ -103,32 +130,6 @@ function Sidebar() {
                     </div> */}
             {/* } */}
             {/* </div>} */}
-            <button onClick={() => setisMenuOpen((val) => !val)} className='h-10 w-10 xl:hidden flex justify-cente items-cente transition-all duration-300 hover:scale-110'>
-                <div className='relative w-full h-full'>
-                    <span
-                        style={{
-                            left: '25%',
-                            top: isMenuOpen ? '45%' : "32%",
-                            rotate: isMenuOpen ? '45deg' : '0deg'
-                        }}
-                        className='absolute h-[2px] w-5 bg-white transition-all duration-300 rounded-full' />
-                    <span
-                        style={{
-                            left: '25%',
-                            top: isMenuOpen ? '45%' : "48%",
-                            rotate: isMenuOpen ? '-45deg' : '0deg'
-                        }}
-                        className='absolute h-[2px] w-5 bg-white transition-all duration-300 rounded-full' />
-                    <span
-                        style={{
-                            left: '25%',
-                            top: isMenuOpen ? '45%' : "63%",
-                            rotate: isMenuOpen ? '45deg' : '0deg'
-                        }}
-                        className='absolute h-[2px] w-5 bg-white transition-all duration-300 rounded-full' />
-                </div>
-            </button>
-            
         </nav>
     )
 }

@@ -2,10 +2,11 @@
 // import Navbar from "../../Navbar";
 // import Sidebar from "../../Sidebar";
 // import ComedyShowPage from "../videogen/ComedyShowPage";
+import Footer from "../../Footer";
 import GallerySection from "./GallerySection";
 import HeroSection from "./HeroSection";
-import Introduction from "./Introduction";
-import PricingSection from "./PricingSection";
+// import Introduction from "./Introduction";
+// import PricingSection from "./PricingSection";
 
 function HomePage() {
   return (
@@ -14,9 +15,10 @@ function HomePage() {
         {/* <Sidebar />
         <ComedyShowPage /> */}
         <HeroSection />
-        <Introduction />
+        {/* <Introduction /> */}
         <GallerySection />
-        <PricingSection />
+        {/* <PricingSection /> */}
+        <Footer />
       </div>
       {/* <Navbar /> */}
     </>
