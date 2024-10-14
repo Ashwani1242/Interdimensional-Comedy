@@ -162,7 +162,7 @@ function VideoGenTavus() {
                             value={prompt}
                             onChange={(e) => setPrompt(e.target.value)}
                             placeholder="Enter your prompt"
-                            className="border/ outline-none p-2 h-full w-full resize-none rounded-sm bg-neutral-950"
+                            className="border/ outline-none p-2 h-full w-full resize-none rounded-sm bg-neutral-900"
                             required />
                     </div>
 
@@ -171,7 +171,7 @@ function VideoGenTavus() {
                         <select
                             value={theme}
                             onChange={(e) => setTheme(e.target.value)}
-                            className="border p-2 bg-neutral-950">
+                            className="border p-2 bg-neutral-900">
                             <option value="fantasy">Fantasy</option>
                             <option value="science fiction">Science Fiction</option>
                             <option value="fairy tale">Fairy Tale</option>
@@ -182,7 +182,7 @@ function VideoGenTavus() {
                         <select
                             value={tone}
                             onChange={(e) => setTone(e.target.value)}
-                            className="border p-2 bg-neutral-950">
+                            className="border p-2 bg-neutral-900">
                             <option value="sarcastic">Sarcastic</option>
                             <option value="hilarious">Hilarious</option>
                             <option value="silly">Silly</option>
@@ -192,7 +192,7 @@ function VideoGenTavus() {
                         <select
                             value={ageGroup}
                             onChange={(e) => setAgeGroup(e.target.value)}
-                            className="border p-2 bg-neutral-950">
+                            className="border p-2 bg-neutral-900">
                             <option value="kids (5 - 12)">Kids (5 - 12)</option>
                             <option value="teens (13 - 18)">Teens (13 - 18)</option>
                             <option value="adults (18 - 35)">Adults (18 - 35)</option>
@@ -201,7 +201,7 @@ function VideoGenTavus() {
                         <select
                             value={duration}
                             onChange={(e) => setDuration(e.target.value)}
-                            className="border p-2 bg-neutral-950">
+                            className="border p-2 bg-neutral-900">
                             <option value="50">30 Seconds</option>
                             <option value="100">1 Minute</option>
                             <option value="150">1 Minute 30 Seconds</option>
