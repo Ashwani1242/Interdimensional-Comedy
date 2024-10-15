@@ -38,7 +38,7 @@ function Sidebar() {
 
                     <MainIcon />
                     <div className='text-xl uppercas md:block hidden font-bold bg-gradient-to-br from-pink-500 via-purple-400 to-blue-300 bg-clip-text text-transparent'>
-                        VibeVision AI <span className="text-xs text-white font-normal">v4</span>
+                        VibeVision AI <span className="text-xs text-white font-normal">v5</span>
                     </div>
 
                     {/* <button onClick={() => setisMenuOpen((val) => !val)} className='h-10 w-10 xl:hidden/ flex justify-cente items-cente transition-all duration-300 hover:scale-110'>
