@@ -15,8 +15,8 @@ const LofiMix: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
     const [instrumental, setInstrumental] = useState<boolean>(true);
 
-    const [width, setWidth] = useState<number>(576); // Default width
-    const [height, setHeight] = useState<number>(1024); // Default height
+    const [width, setWidth] = useState<number>(1024); // Default width
+    const [height, setHeight] = useState<number>(576); // Default height
     const [stylePreset, setStylePreset] = useState<string>('anime'); // Default style preset
 
     // Function to fetch and save media file to client-side
@@ -77,7 +77,7 @@ const LofiMix: React.FC = () => {
     };
 
     return (
-        <div className="p-4 gap-x-8 flex w-full">
+        <div className="p-4 gap-x-8 flex flex-col md:flex-row w-full">
             <div className="max-w-md p-4 flex flex-col w-full bg-white/ /text-black shadow-md rounded-lg">
                 <h2 className="text-2xl font-bold bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent mb-4"> Generate Relaxing Lofi Music videos for you! </h2>
 
@@ -104,20 +104,20 @@ const LofiMix: React.FC = () => {
 
                 {/* Width and Height Options */}
                 <div className="flex justify-center my-6 gap-4">
-                    <div className={`text-xs rounded-lg w-full h-[100px] min-h-[100px] relative p-[1px] ${width === 576 && height === 1024 ? 'bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 text-white' : 'bg-neutral-900 text-white'} `}>
-                        <button
-                            onClick={() => { setWidth(576); setHeight(1024); }}
-                            className={`w-full h-full flex flex-col/ gap-4 justify-center items-center rounded-lg bg-neutral-900`} >
-                            <div className='border w-5 h-8' />
-                            9:16 <br /> (Vertical)
-                        </button>
-                    </div>
                     <div className={`text-xs rounded-lg w-full h-[100px] min-h-[100px] relative p-[1px] ${width === 1024 && height === 576 ? 'bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 text-white' : 'bg-neutral-900 text-white'} `}>
                         <button
                             onClick={() => { setWidth(1024); setHeight(576); }}
                             className={`w-full h-full flex flex-col/ gap-4 justify-center items-center rounded-lg bg-neutral-900`} >
                             <div className='border w-8 h-5' />
                             16:9 <br /> (Horizontal)
+                        </button>
+                    </div>
+                    <div className={`text-xs rounded-lg w-full h-[100px] min-h-[100px] relative p-[1px] ${width === 576 && height === 1024 ? 'bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 text-white' : 'bg-neutral-900 text-white'} `}>
+                        <button
+                            onClick={() => { setWidth(576); setHeight(1024); }}
+                            className={`w-full h-full flex flex-col/ gap-4 justify-center items-center rounded-lg bg-neutral-900`} >
+                            <div className='border w-5 h-8' />
+                            9:16 <br /> (Vertical)
                         </button>
                     </div>
                     <div className="flex flex-col justify-between items-center">
