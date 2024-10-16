@@ -12,4 +12,5 @@ function MainIcon() {
     )
 }
 
+
 export default MainIcon
