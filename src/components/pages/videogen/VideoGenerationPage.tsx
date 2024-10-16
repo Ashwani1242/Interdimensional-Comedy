@@ -2,7 +2,7 @@ import { useState } from "react";
 import VideoGenTavus from "./VideoGenTavus";
 import ReelGen from "./ReelGen";
 
-const tabList = ['Story Time', 'Roast My Pic!']
+const tabList = ['Story Time', 'Roast My Pic!', 'Vibes']
 
 function VideoGenerationPage() {
     const [activeTab, setActiveTab] = useState(tabList[0]);
@@ -13,8 +13,8 @@ function VideoGenerationPage() {
                 return <VideoGenTavus />;
             case tabList[1]:
                 return <ReelGen />;
-            // case tabList[2]:
-            //     return ;
+            case tabList[2]:
+                return <div className="w-full h-96 text-3xl flex justify-center items-center bg-black">Coming Soon..</div>;
             // case tabList[3]:
             //     return <> {tabList[3]} </>;
             default:
@@ -38,7 +38,7 @@ function VideoGenerationPage() {
                     ))}
                 </div>
 
-                <div className="w-full">
+                <div className="w-full h-full">
                     {renderComponent()}
                 </div>
             </div>

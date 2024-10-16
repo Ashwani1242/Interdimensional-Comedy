@@ -5,18 +5,18 @@ import { BASE_URL } from '../../../../config';
 import Loader from '../../../icons/Loader';
 import MusicPlayer from '../../utils/MusicPlayer';
 
-function MusicGenPage() {
+function Jukebox() {
     const [prompt, setPrompt] = useState<string>('');
     const [title, setTitle] = useState<string>('');
-    // const [lyrics, setLyrics] = useState<string>('');
     const [instrumental, setInstrumental] = useState<boolean>(false);
     const [musicUrl, setMusicUrl] = useState<string>('');
     const [imageUrl, setImageUrl] = useState<string>('');
     const [musicTitle, setMusicTitle] = useState<string>('');
     const [isGeneratingMusic, setIsGeneratingMusic] = useState<boolean>(false);
     const [error, setError] = useState<string>('');
-    // const [isLyricsEnabled, setIsLyricsEnabled] = useState<boolean>(false);
     const [generatedLyrics, setGeneratedLyrics] = useState<string>('');
+    const [genreType, setGenreType] = useState<string>('Pop');
+    const [themeType, setThemeType] = useState<string>('Love');
 
     const handleGenerateMusic = async () => {
         if (!prompt.trim()) {
@@ -24,7 +24,7 @@ function MusicGenPage() {
             return;
         }
 
-        const finalPrompt = `Create a fun, joyful, and playful kid's poem like or cartoon like song suitable for children below 10 years old. for: ${prompt}.`;
+        const finalPrompt = `Create a ${genreType} song with the theme of ${themeType}. "${prompt}". The music should capture the essence of ${themeType}. Ensure that elements typical of ${genreType} music, like its instruments, rhythm, and mood, are present.`;
 
         setError('');
         setIsGeneratingMusic(true);
@@ -64,7 +64,6 @@ function MusicGenPage() {
         }
     };
 
-    // console.log(isGeneratingMusic)
 
     return (
         <div className='p-4 gap-x-8 flex w-full'>
@@ -73,7 +72,7 @@ function MusicGenPage() {
                     Generate Your Music
                 </div> */}
 
-                <h2 className="text-2xl font-bold bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent mb-4"> Generate some great music for your kids </h2>
+                <h2 className="text-2xl font-bold bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent mb-4"> AI Jukebox for custom AI generated music to your liking. </h2>
                 <div className='space-y-4'>
 
                     <div className='max-w-md mx-auto mt-8 overflow-hidden/ md:max-w-xl w-full h-[100px] min-h-[100px] relative p-[1px] bg-gradient-to-br from-red-400 via-indigo-400 to-purple-400 rounded-sm'>
@@ -108,31 +107,43 @@ function MusicGenPage() {
                             <label>Instrumental</label>
                         </div>
 
-                        {/* <div className="flex items-center">
-                            <input
-                                type="checkbox"
-                                checked={isLyricsEnabled}
-                                onChange={() => setIsLyricsEnabled(!isLyricsEnabled)}
-                                className="mr-2"
-                            />
-                            <label>Add Custom Lyrics</label>
-                        </div> */}
-                    </div>
-
-                    {/* {isLyricsEnabled && (
-                        <div className='w-full h-[200px] min-h-[150px] relative p-[1px] bg-gradient-to-br from-red-400 via-indigo-400 to-purple-400 rounded-sm mt-4'>
-                            <textarea
-                                value={lyrics}
-                                onChange={(e) => setLyrics(e.target.value)}
-                                placeholder="Enter your lyrics"
-                                className="outline-none p-2 h-full w-full resize-none rounded-sm bg-neutral-950 text-neutral-300"
-                            />
+                        <div className="flex flex-col mb-6">
+                            <span className='font-bold bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent mb-4'>Genre:</span>
+                            <div className='flex text-nowrap flex-wrap gap-1'>
+                                {['Pop', 'Anime', 'Rock', 'Classical', 'Jazz', 'Hip-Hop', 'Lofi', 'Electronic', 'R&B/Soul', 'Chillout', 'Holiday', 'Children’s Music', 'Metal', 'Blues'].map((genre) => (
+                                    <div key={genre} className={`text-xs w-fit h-fit rounded-lg p-[2px] ${genreType === genre ? 'bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 text-white' : 'bg-neutral-900 text-white'} `}>
+                                        <button
+                                            onClick={() => setGenreType(genre)}
+                                            className={`px-4 py-2 rounded-lg bg-neutral-800`}
+                                        >
+                                            {genre.replace('-', ' ')}
+                                        </button>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    )} */}
+
+
+                        <div className="flex flex-col mb-6">
+                            <span className='font-bold bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent mb-4'>Theme:</span>
+                            <div className='flex text-nowrap flex-wrap gap-1'>
+                                {['Love', 'Adventure', 'Fantasy', 'Fantasy/Mythology', 'Nature', 'Celebration', 'Sadness', 'Uplifting/Positive', 'Relaxation', 'Spiritual', 'Inspirational', 'War', 'Space/Science Fiction', 'Epic', 'Blues'].map((theme) => (
+                                    <div key={theme} className={`text-xs w-fit h-fit rounded-lg p-[2px] ${themeType === theme ? 'bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 text-white' : 'bg-neutral-900 text-white'} `}>
+                                        <button
+                                            onClick={() => setThemeType(theme)}
+                                            className={`px-4 py-2 rounded-lg bg-neutral-800`}
+                                        >
+                                            {theme.replace('-', ' ')}
+                                        </button>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
 
                     <button
                         onClick={handleGenerateMusic}
-                        className="w-full px-1"
+                        className="w-full"
                         disabled={isGeneratingMusic}>
                         <PrimaryButton label={isGeneratingMusic ? 'Generating Music...' : 'Generate Music'} />
                     </button>
@@ -165,4 +176,4 @@ function MusicGenPage() {
     );
 }
 
-export default MusicGenPage;
+export default Jukebox;

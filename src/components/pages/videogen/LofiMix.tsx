@@ -151,7 +151,7 @@ const LofiMix: React.FC = () => {
                 {/* Style Preset Options */}
                 <div className="flex flex-col mb-6">
                     <span className='font-bold bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent mb-4'>Background Style:</span>
-                    <div className='flex text-nowrap flex-wrap gap-4'>
+                    <div className='flex text-nowrap flex-wrap gap-1'>
                         {['anime', 'cinematic', '3d-model', 'analog-film', 'comic-book', 'digital-art', 'fantasy-art', 'neon-punk', 'pixel-art', 'photographic'].map((preset) => (
                             <div key={preset} className={`text-xs w-fit h-fit rounded-lg p-[2px] ${stylePreset === preset ? 'bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 text-white' : 'bg-neutral-900 text-white'} `}>
                                 <button

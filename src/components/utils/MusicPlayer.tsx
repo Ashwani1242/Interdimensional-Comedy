@@ -61,7 +61,7 @@ const MusicPlayer: React.FC<AudioPlayerProps> = ({ imageUrl, audioUrl, title }) 
     return (
         <div className="max-w-md w-full mx-auto bg-neutral-800 rounded-lg shadow-lg p-4">
             <div className="flex items-center space-x-4">
-                <img src={imageUrl} alt="Thumbnail" className="w-16 h-16 rounded-lg object-cover" />
+                <img src={imageUrl} alt="Thumbnail" className="w-32 h-32 rounded-lg object-cover" />
                 <div className="flex-1">
                     <div className="text-white text-xl font-semibold">{title}</div>
                     {/* <div className="text-gray-400">Artist Name</div> */}

@@ -2,8 +2,9 @@
 import { useState } from "react";
 import MusicGenPage from "./MusicGenPage"
 import LofiMix from "../videogen/LofiMix";
+import Jukebox from "./Jukebox";
 
-const tabList = ['Kid\'s Music', 'Lo-Fi Mix']
+const tabList = ['Jukebox', 'Kid\'s Music', 'Lo-Fi Mix']
 
 function KidsMusicPage() {
   const [activeTab, setActiveTab] = useState(tabList[0]);
@@ -13,11 +14,11 @@ function KidsMusicPage() {
       // case tabList[0]:
       //   return <> {tabList[0]} </>;
       case tabList[0]:
-        return <MusicGenPage />;
+        return <Jukebox />;
       case tabList[1]:
+        return <MusicGenPage />;
+      case tabList[2]:
         return <> <LofiMix /> </>;
-      // case tabList[3]:
-      //   return <> { tabList[3] } </>;
       default:
         return null;
     }
