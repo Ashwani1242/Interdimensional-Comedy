@@ -122,7 +122,7 @@ const LofiMix: React.FC = () => {
                     </div>
                     <div className="flex lg:flex-col flex-row gap-4 lg:justify-between items-center">
                         <div className="w-20 h-fit rounded relative flex justify-center items-center p-[1px] bg-gradient-to-br from-red-400 via-indigo-400 to-purple-400">
-                            <span className='text-neutral-500 text-xs w-full absolute -bottom-[50%] lg:-right-[108%]'>Width*</span>
+                            <span className='text-neutral-500 text-xs w-full absolute -bottom-[50%] lg:bottom-auto lg:-right-[108%]'>Width*</span>
                             <input
                                 type="number"
                                 value={width}
@@ -133,7 +133,7 @@ const LofiMix: React.FC = () => {
                             />
                         </div>
                         <div className="w-20 h-fit rounded relative flex justify-center items-center p-[1px] bg-gradient-to-br from-red-400 via-indigo-400 to-purple-400">
-                            <span className='text-neutral-500 text-xs w-full absolute -bottom-[50%] lg:-right-[108%]'>Height*</span>
+                            <span className='text-neutral-500 text-xs w-full absolute -bottom-[50%] lg:bottom-auto lg:-right-[108%]'>Height*</span>
                             <input
                                 type="number"
                                 value={height}
