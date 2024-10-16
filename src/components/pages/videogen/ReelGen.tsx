@@ -216,9 +216,9 @@ const ReelGen: React.FC = () => {
       <div className="p-4 flex flex-col flex-1 w-full items-center shadow-md rounded-lg">
         {loading && (
           <div className="flex flex-col justify-between text-sm/ mt-2">
-            <div className={`${isVideoGenerated ? 'text-green-500' : 'text-gray-400'} flex flex-col gap-y-4 font-semibold items-center m-4 p-2 bg-gra/y-200 rounded-xl`}>
+            <div className={`${isVideoGenerated ? 'text-green-500' : 'text-gray-400'} flex flex-col text-center gap-y-4 font-semibold items-center m-4 p-2 bg-gra/y-200 rounded-xl`}>
               <Loader isLoading={!isVideoGenerated} />
-              <span className='animate-pulse'>Your video is in Queue...</span>
+              <span className='animate-pulse'>Your video is in Queue, <br /> Please don't close this page..</span>
             </div>
           </div>
         )}
