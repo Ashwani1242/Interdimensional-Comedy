@@ -77,7 +77,7 @@ const LofiMix: React.FC = () => {
     };
 
     return (
-        <div className="p-4 gap-x-8 flex flex-col md:flex-row w-full">
+        <div className="p-4 gap-x-8 flex flex-col lg:flex-row justify-center items-center w-full">
             <div className="max-w-md p-4 flex flex-col w-full bg-white/ /text-black shadow-md rounded-lg">
                 <h2 className="text-2xl font-bold bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent mb-4"> Generate Relaxing Lofi Music videos for you! </h2>
 
@@ -103,7 +103,7 @@ const LofiMix: React.FC = () => {
                 </div>
 
                 {/* Width and Height Options */}
-                <div className="flex justify-center my-6 gap-4">
+                <div className="flex lg:flex-row flex-col justify-center my-6 gap-4">
                     <div className={`text-xs rounded-lg w-full h-[100px] min-h-[100px] relative p-[1px] ${width === 1024 && height === 576 ? 'bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 text-white' : 'bg-neutral-900 text-white'} `}>
                         <button
                             onClick={() => { setWidth(1024); setHeight(576); }}
@@ -120,9 +120,9 @@ const LofiMix: React.FC = () => {
                             9:16 <br /> (Vertical)
                         </button>
                     </div>
-                    <div className="flex flex-col justify-between items-center">
+                    <div className="flex lg:flex-col flex-row gap-4 lg:justify-between items-center">
                         <div className="w-20 h-fit rounded relative flex justify-center items-center p-[1px] bg-gradient-to-br from-red-400 via-indigo-400 to-purple-400">
-                            <span className='text-neutral-500 text-xs w-full absolute -right-[108%]'>Width*</span>
+                            <span className='text-neutral-500 text-xs w-full absolute -bottom-[50%] lg:-right-[108%]'>Width*</span>
                             <input
                                 type="number"
                                 value={width}
@@ -133,7 +133,7 @@ const LofiMix: React.FC = () => {
                             />
                         </div>
                         <div className="w-20 h-fit rounded relative flex justify-center items-center p-[1px] bg-gradient-to-br from-red-400 via-indigo-400 to-purple-400">
-                            <span className='text-neutral-500 text-xs w-full absolute -right-[108%]'>Height*</span>
+                            <span className='text-neutral-500 text-xs w-full absolute -bottom-[50%] lg:-right-[108%]'>Height*</span>
                             <input
                                 type="number"
                                 value={height}

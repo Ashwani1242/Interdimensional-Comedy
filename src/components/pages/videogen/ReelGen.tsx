@@ -149,7 +149,7 @@ const ReelGen: React.FC = () => {
   };
 
   return (
-    <div className="p-4 gap-x-8 flex w-full">
+    <div className="p-4 gap-x-8 flex flex-col lg:flex-row justify-center items-center w-full">
       <div className="max-w-md p-4 flex flex-col w-full bg-white/ /text-black shadow-md rounded-lg">
         <h2 className="text-2xl font-bold bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent mb-4"> Tired of everyone talking good about you? Tell VibeVision AI to roast you instead! </h2>
         <div className="space-y-4">

@@ -66,7 +66,7 @@ function Jukebox() {
 
 
     return (
-        <div className='p-4 gap-x-8 flex w-full'>
+        <div className='p-4 gap-x-8 flex flex-col lg:flex-row justify-center items-center w-full'>
             <div className="max-w-md p-4 w-full bg-white/ /text-black shadow-md rounded-lg flex-1 flex flex-col">
                 {/* <div className='text-2xl md:text-4xl uppercase font-bold bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent pb-8'>
                     Generate Your Music

@@ -28,7 +28,8 @@ function App() {
       <div className="flex w-screen h-screen max-h-screen">
         <Sidebar />
         <Routes >
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Navigate to='/create' />} />
+          <Route path="/explore" element={<HomePage />} />
           <Route path="/create" element={<CreatePage />} >
             <Route index element={<Navigate to="video" />} />
             <Route path="video" element={<VideoGenerationPage />} />

@@ -8,8 +8,8 @@ interface props {
 
 function GallerySection({ labelOne = "Comedy Shows", labelTwo = "Kid's Music" }: props) {
 
-  const videoCarouselWidth = window.innerWidth >= 680 ? 360 : window.innerWidth >= 512 ? 360 : 360;
-  const musicCarouselWidth = window.innerWidth >= 512 ? 260 : 260;
+  const videoCarouselWidth = window.innerWidth >= 680 ? 360 : window.innerWidth >= 512 ? 300 : 300;
+  const musicCarouselWidth = window.innerWidth >= 512 ? 200 : 200;
 
   return (
     <>
