@@ -30,7 +30,7 @@ function Sidebar() {
     return (
         !isMenuOpen ?
             (<div className="fixed top-4 left-4 z-50 bg-neutral-800 p-2 rounded-xl">
-                <button onClick={() => setisMenuOpen(val => !val)} className="flex pb-1 justify-center items-center cursor-pointer">
+                <button onClick={() => setisMenuOpen(val => !val)} className="flex justify-center items-center cursor-pointer">
                     <MainIcon />
                 </button>
             </div>)
