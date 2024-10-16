@@ -129,7 +129,7 @@ const LofiMix: React.FC = () => {
                                 onChange={(e) => setWidth(Math.min(1024, Math.max(0, parseInt(e.target.value))))}
                                 max="1536"
                                 placeholder="Custom Width"
-                                className="w-full p-2 rounded mb-2/"
+                                className="w-full p-2 rounded mb-2/ bg-neutral-900"
                             />
                         </div>
                         <div className="w-20 h-fit rounded relative flex justify-center items-center p-[1px] bg-gradient-to-br from-red-400 via-indigo-400 to-purple-400">
@@ -140,7 +140,7 @@ const LofiMix: React.FC = () => {
                                 onChange={(e) => setHeight(Math.min(1024, Math.max(0, parseInt(e.target.value))))}
                                 max="1536"
                                 placeholder="Custom Height"
-                                className="w-full p-2 rounded"
+                                className="w-full p-2 rounded bg-neutral-900"
                             />
                         </div>
                     </div>
