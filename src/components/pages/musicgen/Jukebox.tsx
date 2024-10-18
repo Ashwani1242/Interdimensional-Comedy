@@ -24,7 +24,7 @@ function Jukebox() {
             return;
         }
 
-        const finalPrompt = `Create a ${genreType} song with the theme of ${themeType}. "${prompt}". The music should capture the essence of ${themeType}. Ensure that elements typical of ${genreType} music, like its instruments, rhythm, and mood, are present.`;
+        const finalPrompt = `Create a ${genreType} song with the theme of ${themeType} not more than 1 minute long. "${prompt}". The music should capture the essence of ${themeType}. Ensure that elements typical of ${genreType} music, like its instruments, rhythm, and mood, are present.`;
 
         setError('');
         setIsGeneratingMusic(true);

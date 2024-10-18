@@ -99,6 +99,7 @@ const ReelGen: React.FC = () => {
   // };
 
   const handleGenerate = async () => {
+    setError(null)
     if (!image) {
       alert('Please upload an image before submitting.');
       return;
@@ -138,7 +139,7 @@ const ReelGen: React.FC = () => {
         console.log(videoUrl); // Log the temporary video URL
       } else {
         console.error('Error from server:', response.status);
-        setError('Failed to generate summary, audio, or video');
+        setError('Failed to generate summary, audio, or video.');
       }
     } catch (error) {
       console.error('Error generating summary:', error);
@@ -226,7 +227,7 @@ const ReelGen: React.FC = () => {
         {error && (
           <div className="mt-6 p-4 max-w-md w-full bg-red-800/40 border-red-900 border-2 text-red-300 rounded-md">
             <h3 className="font-bold mb-2">Error:</h3>
-            <p>{error} This is an Error</p>
+            <p>{error} <br /> _ <br /> Google Generative AI Error: <br /> Candidate was blocked due to SAFETY</p>
           </div>
         )}
 
