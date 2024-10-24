@@ -3,6 +3,8 @@ import axios from 'axios';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import PrimaryButton from '../../utils/PrimaryButton';
 import Loader from '../../../icons/Loader';
+import CardCarousel from '../../utils/CardCarousel';
+import { webData } from '../../../data/db';
 
 function VideoGenTavus() {
     const [prompt, setPrompt] = useState<string>('');
@@ -150,105 +152,114 @@ function VideoGenTavus() {
     };
 
     return (
-        <div className="p-4 gap-x-8 flex flex-col lg:flex-row justify-center items-center w-full">
-            <div className="max-w-md p-4 flex flex-col w-full bg-white/ /text-black shadow-md rounded-lg">
-                <div className='text-2xl font-bold bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent mb-4'>
-                    Let a character narrate a funny story for you!
-                </div>
-                <div className="space-y-4">
-                    <div className='w-full h-[200px] md:h-[100px] md:focus-within:h-[160px] duration-500 relative p-[1px] bg-gradient-to-br from-red-400 from-30% via-indigo-400 to-purple-400 rounded-sm'>
-                        {error && <p className="text-red-500 absolute -top-8">{error}</p>}
-                        <textarea
-                            value={prompt}
-                            onChange={(e) => setPrompt(e.target.value)}
-                            placeholder="Enter your prompt"
-                            className="border/ outline-none p-2 h-full w-full resize-none rounded-sm bg-neutral-900"
-                            required />
+        <>
+            <div className="p-4 gap-x-8 flex flex-col lg:flex-row justify-center items-center lg:items-start relative w-full mb-12">
+                <div className="max-w-md p-4 flex flex-col w-full bg-white/ /text-black shadow-md rounded-lg">
+                    <div className='text-2xl font-bold bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 bg-clip-text text-transparent mb-8'>
+                        Let a character narrate a funny story for you!
                     </div>
-
-                    <div className='flex flex-col md:grid grid-cols-2 gap-4 w-full'>
-                        {/* <div className='w-full h-fit focus-within:h-[160px] duration-500 relative p-[1px] bg-gradient-to-br from-red-400 to-indigo-400 rounded-sm'> */}
-                        <select
-                            value={theme}
-                            onChange={(e) => setTheme(e.target.value)}
-                            className="border p-2 bg-neutral-900">
-                            <option value="fantasy">Fantasy</option>
-                            <option value="science fiction">Science Fiction</option>
-                            <option value="fairy tale">Fairy Tale</option>
-                            <option value="slice of life">Slice Of Life</option>
-                        </select>
-                        {/* </div> */}
-
-                        <select
-                            value={tone}
-                            onChange={(e) => setTone(e.target.value)}
-                            className="border p-2 bg-neutral-900">
-                            <option value="sarcastic">Sarcastic</option>
-                            <option value="hilarious">Hilarious</option>
-                            <option value="silly">Silly</option>
-                            <option value="dark comedy">Dark Comedy</option>
-                        </select>
-
-                        <select
-                            value={ageGroup}
-                            onChange={(e) => setAgeGroup(e.target.value)}
-                            className="border p-2 bg-neutral-900">
-                            <option value="kids (5 - 12)">Kids (5 - 12)</option>
-                            <option value="teens (13 - 18)">Teens (13 - 18)</option>
-                            <option value="adults (18 - 35)">Adults (18 - 35)</option>
-                        </select>
-
-                        <select
-                            value={duration}
-                            onChange={(e) => setDuration(e.target.value)}
-                            className="border p-2 bg-neutral-900">
-                            <option value="50">30 Seconds</option>
-                            <option value="100">1 Minute</option>
-                            <option value="150">1 Minute 30 Seconds</option>
-                            <option value="200">2 Minutes</option>
-                        </select>
-                    </div>
-
-                    <div className='h-fit w-full py-2'>
-                        <div className='w-full h-[2px] bg-white/30'></div>
-                    </div>
-
-                    <button
-                        onClick={handleGenerate}
-                        className="w-full px-1"
-                        disabled={isGeneratingScript || isGeneratingVideo}>
-                        <PrimaryButton label={isGeneratingScript ? 'Generating Script...' : isGeneratingVideo ? 'Generating Video...' : 'Generate'} />
-                    </button>
-
-                </div>
-
-            </div>
-            {/* <div className='py-40 h-full'> <div className='h-full w-[2px] bg-neutral-500' /> </div> */}
-            <div className="p-4 flex flex-col flex-1 w-full items-center shadow-md rounded-lg">
-                {videoUrl || isFetchingVideo ? "" : "Your Video Here"}
-                {isFetchingVideo ? (
-                    <div className="flex flex-col justify-between text-sm/ mt-2">
-                    <div className={`${videoUrl ? 'text-green-500' : 'text-gray-400'} flex flex-col text-center gap-y-4 font-semibold items-center m-4 p-2 bg-gra/y-200 rounded-xl`}>
-                      <Loader isLoading={!videoUrl} />
-                      <span className='animate-pulse'>Your video is in Queue, <br /> Please don't close this page..</span>
-                    </div>
-                  </div>
-                ) : (
-                    videoUrl && (
-                        <div className="p-4 border/ mt-4/ gap-y-2">
-                            <p>Video generated successfully!</p>
-                            <video controls src={videoUrl} className="w-full max-h-[480px] mt-2 mb-4" />
-                            <a href={videoUrl} download className="bg-green-500 text-white p-2 rounded">
-                                Download Video
-                            </a>
+                    <div className="space-y-4">
+                        <div className='w-full h-[200px] md:h-[100px] md:focus-within:h-[160px] duration-500 relative p-[1px] bg-gradient-to-br from-red-400 from-30% via-indigo-400 to-purple-400 rounded-sm'>
+                            {error && <p className="text-red-500 absolute -top-6">{error}</p>}
+                            <textarea
+                                value={prompt}
+                                onChange={(e) => setPrompt(e.target.value)}
+                                placeholder="Enter your prompt"
+                                className="border/ outline-none p-2 h-full w-full resize-none rounded-sm bg-neutral-900"
+                                required />
                         </div>
-                    )
-                )}
-                
-                {generatedScript && 
-                <div className="p-4 xl:flex-1 max-w-md max-h-[200px] border mt-4 w-full h-[200px] xl:h-full overflow-y-auto bg-black/50 text-gray-400 overflow-hidden">{generatedScript}</div> }
+
+                        <div className='flex/ flex-col grid grid-cols-2 gap-4 w-full'>
+                            {/* <div className='w-full h-fit focus-within:h-[160px] duration-500 relative p-[1px] bg-gradient-to-br from-red-400 to-indigo-400 rounded-sm'> */}
+                            <select
+                                value={theme}
+                                onChange={(e) => setTheme(e.target.value)}
+                                className="border p-2 bg-neutral-900">
+                                <option value="fantasy">Fantasy</option>
+                                <option value="science fiction">Science Fiction</option>
+                                <option value="fairy tale">Fairy Tale</option>
+                                <option value="slice of life">Slice Of Life</option>
+                            </select>
+                            {/* </div> */}
+
+                            <select
+                                value={tone}
+                                onChange={(e) => setTone(e.target.value)}
+                                className="border p-2 bg-neutral-900">
+                                <option value="sarcastic">Sarcastic</option>
+                                <option value="hilarious">Hilarious</option>
+                                <option value="silly">Silly</option>
+                                <option value="dark comedy">Dark Comedy</option>
+                            </select>
+
+                            <select
+                                value={ageGroup}
+                                onChange={(e) => setAgeGroup(e.target.value)}
+                                className="border p-2 bg-neutral-900">
+                                <option value="kids (5 - 12)">Kids (5 - 12)</option>
+                                <option value="teens (13 - 18)">Teens (13 - 18)</option>
+                                <option value="adults (18 - 35)">Adults (18 - 35)</option>
+                            </select>
+
+                            <select
+                                value={duration}
+                                onChange={(e) => setDuration(e.target.value)}
+                                className="border p-2 bg-neutral-900">
+                                <option value="50">30 Seconds</option>
+                                <option value="100">1 Minute</option>
+                                <option value="150">1 Minute 30 Seconds</option>
+                                <option value="200">2 Minutes</option>
+                            </select>
+                        </div>
+
+                        <div className='h-fit w-full py-2'>
+                            <div className='w-full h-[2px] bg-white/30'></div>
+                        </div>
+
+                        <button
+                            onClick={handleGenerate}
+                            className="w-full px-1"
+                            disabled={isGeneratingScript || isGeneratingVideo}>
+                            <PrimaryButton label={isGeneratingScript ? 'Generating Script...' : isGeneratingVideo ? 'Generating Video...' : 'Generate'} />
+                        </button>
+
+                    </div>
+
+                </div>
+                {/* <div className='py-40 h-full'> <div className='h-full w-[2px] bg-neutral-500' /> </div> */}
+                <div className="p-4 flex flex-col flex-1 w-full items-center shadow-md h-full rounded-lg">
+                    {videoUrl || isFetchingVideo ? "" : "Your Video Here"}
+                    {isFetchingVideo ? (
+                        <div className="flex flex-col justify-between text-sm/ mt-2">
+                            <div className={`${videoUrl ? 'text-green-500' : 'text-gray-400'} flex flex-col text-center gap-y-4 font-semibold items-center m-4 p-2 bg-gra/y-200 rounded-xl`}>
+                                <Loader isLoading={!videoUrl} />
+                                <span className='animate-pulse'>Your video is in Queue, <br /> Please don't close this page..</span>
+                            </div>
+                        </div>
+                    ) : (
+                        videoUrl && (
+                            <div className="p-4 border/ mt-4/ gap-y-2">
+                                <p>Video generated successfully!</p>
+                                <video controls src={videoUrl} className="w-full max-h-[480px] mt-2 mb-4" />
+                                <a href={videoUrl} download className="bg-green-500 text-white p-2 rounded">
+                                    Download Video
+                                </a>
+                            </div>
+                        )
+                    )}
+
+                    {generatedScript &&
+                        <div className="p-4 xl:flex-1 max-w-md max-h-[200px] border mt-4 w-full h-[200px] xl:h-full overflow-y-auto bg-black/50 text-gray-400 overflow-hidden">{generatedScript}</div>}
+                </div>
             </div>
-        </div>
+            <CardCarousel
+                width={300}
+                title={'Sample Videos'}
+                slides={webData.storyVideos}
+                customClass='mb-96'
+            />
+        </>
+
     );
 }
 

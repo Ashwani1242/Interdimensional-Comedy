@@ -9,7 +9,7 @@ interface props {
 function GallerySection({ labelOne = "Comedy Shows", labelTwo = "Kid's Music" }: props) {
 
   const videoCarouselWidth = window.innerWidth >= 680 ? 360 : window.innerWidth >= 512 ? 300 : 300;
-  const musicCarouselWidth = window.innerWidth >= 512 ? 200 : 200;
+  const musicCarouselWidth = 200;
 
   return (
     <>
@@ -17,6 +17,11 @@ function GallerySection({ labelOne = "Comedy Shows", labelTwo = "Kid's Music" }:
         width={videoCarouselWidth}
         title={labelOne}
         slides={webData.videoGallery}
+      />
+      <CardCarousel
+        width={videoCarouselWidth}
+        title={labelOne}
+        slides={webData.storyVideos}
       />
       <CardCarousel
         width={videoCarouselWidth}

@@ -99,4 +99,82 @@ export const webData = {
             imageUrl: '/images/features/new7.png',
         },
     ],
+    storyVideos: [
+        {
+            id: 1,
+            videoUrl: '/videos/story/videos/video1.mp4',
+            imageUrl: '/videos/story/thumbnails/thumbnail1.png',
+            isVideo: true,
+        },
+        {
+            id: 2,
+            videoUrl: '/videos/story/videos/video2.mp4',
+            imageUrl: '/videos/story/thumbnails/thumbnail2.png',
+            isVideo: true,
+        },
+        {
+            id: 3,
+            videoUrl: '/videos/story/videos/video3.mp4',
+            imageUrl: '/videos/story/thumbnails/thumbnail3.png',
+            isVideo: true,
+        },
+        {
+            id: 4,
+            videoUrl: '/videos/story/videos/video4.mp4',
+            imageUrl: '/videos/story/thumbnails/thumbnail4.png',
+            isVideo: true,
+        },
+    ],
+    roastVideos: [
+        {
+            id: 1,
+            videoUrl: '/videos/roast/videos/video1.mp4',
+            imageUrl: '/videos/roast/thumbnails/thumbnail1.png',
+            isVideo: true,
+        },
+        {
+            id: 2,
+            videoUrl: '/videos/roast/videos/video2.mp4',
+            imageUrl: '/videos/roast/thumbnails/thumbnail2.png',
+            isVideo: true,
+        },
+        {
+            id: 3,
+            videoUrl: '/videos/roast/videos/video3.mp4',
+            imageUrl: '/videos/roast/thumbnails/thumbnail3.png',
+            isVideo: true,
+        },
+        {
+            id: 4,
+            videoUrl: '/videos/roast/videos/video4.mp4',
+            imageUrl: '/videos/roast/thumbnails/thumbnail4.png',
+            isVideo: true,
+        },
+        {
+            id: 5,
+            videoUrl: '/videos/roast/videos/video5.mp4',
+            imageUrl: '/videos/roast/thumbnails/thumbnail5.png',
+            isVideo: true,
+        },
+        {
+            id: 6,
+            videoUrl: '/videos/roast/videos/video6.mp4',
+            imageUrl: '/videos/roast/thumbnails/thumbnail6.png',
+            isVideo: true,
+        },
+    ],
+    lofiVideos: [
+        {
+            id: 1,
+            videoUrl: '/videos/lofi/videos/video1.mp4',
+            imageUrl: '/videos/lofi/thumbnails/thumbnail1.png',
+            isVideo: true,
+        },
+        {
+            id: 2,
+            videoUrl: '/videos/lofi/videos/video2.mp4',
+            imageUrl: '/videos/lofi/thumbnails/thumbnail2.png',
+            isVideo: true,
+        },
+    ],
 }
