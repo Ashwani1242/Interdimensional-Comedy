@@ -7,6 +7,7 @@ import Loader from '../../../icons/Loader';
 import Instrument from '../../../icons/Instrument';
 import { webData } from '../../../data/db';
 import CardCarousel from '../../utils/CardCarousel';
+import GallerySection from '../home/GallerySection';
 
 const LofiMix: React.FC = () => {
     const [prompt, setPrompt] = useState<string>('');
@@ -254,8 +255,10 @@ const LofiMix: React.FC = () => {
                 width={300}
                 title={'Sample Videos'}
                 slides={webData.lofiVideos}
-                customClass='mb-96'
+                // customClass='mb-96'
             />
+            <div className="text-5xl pl-8 py-16" > Explore More! </div>
+            <GallerySection />
         </>
     );
 };

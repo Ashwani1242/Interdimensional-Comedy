@@ -105,7 +105,7 @@ function Sidebar() {
                         >
                             <MainIcon />
                             <div className="text-lg font-bold bg-gradient-to-br from-pink-500 via-purple-400 to-blue-300 bg-clip-text text-transparent">
-                                VibeVision AI <span className="text-xs text-white font-normal">v0</span>
+                                VibeVision AI <span className="text-xs text-white font-normal">v1</span>
                             </div>
                         </button>
                     )}

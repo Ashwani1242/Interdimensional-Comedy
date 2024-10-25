@@ -5,6 +5,7 @@ import PrimaryButton from '../../utils/PrimaryButton';
 import Loader from '../../../icons/Loader';
 import CardCarousel from '../../utils/CardCarousel';
 import { webData } from '../../../data/db';
+import GallerySection from '../home/GallerySection';
 
 function VideoGenTavus() {
     const [prompt, setPrompt] = useState<string>('');
@@ -256,8 +257,10 @@ function VideoGenTavus() {
                 width={300}
                 title={'Sample Videos'}
                 slides={webData.storyVideos}
-                customClass='mb-96'
+                // customClass='mb-96'
             />
+            <div className="text-5xl pl-8 py-16" > Explore More! </div>
+            <GallerySection />
         </>
 
     );

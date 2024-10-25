@@ -4,6 +4,7 @@ import { BASE_URL } from '../../../../config';
 import PrimaryButton from '../../utils/PrimaryButton';
 import CardCarousel from '../../utils/CardCarousel';
 import { webData } from '../../../data/db';
+import GallerySection from '../home/GallerySection';
 // import axios from 'axios';
 
 const ReelGen: React.FC = () => {
@@ -255,12 +256,15 @@ const ReelGen: React.FC = () => {
         </div>
       </div>
       <CardCarousel
-                width={200}
-                title={'Sample Videos'}
-                slides={webData.roastVideos}
-                landscape={false}
-                customClass='mb-96'
-            />
+        width={200}
+        title={'Sample Videos'}
+        slides={webData.roastVideos}
+        landscape={false}
+        // customClass='mb-96'
+      />
+      
+      <div className="text-5xl pl-8 py-16" > Explore More! </div>
+      <GallerySection />
     </>
   );
 };
